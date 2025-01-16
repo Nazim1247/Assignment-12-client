@@ -9,7 +9,7 @@ const MainLayout = () => {
             <div className='bg-primary fixed top-0 w-full'>
             <Navbar></Navbar>
             </div>
-            <div className="mt-16 pt-8">
+            <div className="mt-16 pt-8 min-h-[263px]">
             <Outlet></Outlet>
             </div>
             <Footer></Footer>
