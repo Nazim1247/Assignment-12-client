@@ -1,9 +1,12 @@
+import Banner from "../components/Banner";
 
 
 const Home = () => {
     return (
-        <div>
-            Home
+        <div className="w-11/12 mx-auto">
+            <div className="">
+            <Banner></Banner>
+            </div>
         </div>
     );
 };
