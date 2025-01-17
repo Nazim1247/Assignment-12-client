@@ -1,13 +1,28 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const {user, logoutUser} = useContext(AuthContext);
 
     const links = <div className='flex lg:flex-row flex-col space-x-3'>
     <li><NavLink to='/' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Home</NavLink></li>
     <li><NavLink to='/allProperties' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>All Properties</NavLink></li>
     <li><NavLink to='/dashboard' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Dashboard</NavLink></li>
     </div>
+
+    const handleLogout = ()=>{
+      logoutUser()
+      .then(() =>{
+        navigate('/login')
+        console.log('logout successfully!')
+      })
+      .catch(error =>{
+        console.log(error.message)
+      })
+    }
     return (
         <div className='w-11/12 mx-auto'>
             <div className="navbar">
@@ -42,7 +57,16 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link className='btn btn-ghost text-white' to='/login'>Login</Link>
+    {
+      user ? 
+      <>
+      <button className='btn btn-ghost text-white' onClick={handleLogout}>Logout</button>
+      <img title={user.displayName} className='w-12 h-12 rounded-full ml-2' src={user?.photoURL} alt="" />
+      </> 
+      : 
+      <Link className='btn btn-ghost text-white' to='/login'>Login</Link>
+    }
+    
   </div>
 </div>
         </div>

@@ -8,7 +8,7 @@ import SocialLogin from "../social/SocialLogin";
 const Register = () => {
     const navigate = useNavigate();
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser,user,setUser,updateUser} = useContext(AuthContext);
 
     const handleSubmit = e =>{
         e.preventDefault();
@@ -21,8 +21,17 @@ const Register = () => {
 
         createUser(email,password)
         .then(result =>{
+            setUser({
+                ...result.user,photoUrl: photo
+            })
+
+            //update user
+            updateUser({displayName: name, photoURL: photo})
             navigate('/')
             console.log(result.user)
+        })
+        .catch(error =>{
+            console.log(error.message)
         })
     }
 
