@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import lottie from '../assets/lottie1.json';
 import Lottie from "lottie-react";
 import { Link, useNavigate } from "react-router-dom";
+import SocialLogin from "../social/SocialLogin";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -36,6 +37,9 @@ const Register = () => {
     <div className="card bg-base-100 w-full shadow">
       <form onSubmit={handleSubmit} className="card-body">
         <p className='text-center'>Already Have an Account? <Link className='text-red-600' to={'/login'}>Login</Link></p>
+        <button type='button' className='btn text-center'>
+            <SocialLogin></SocialLogin>
+        </button>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>

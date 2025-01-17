@@ -3,6 +3,7 @@ import lottie from '../assets/lottie2.json';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import SocialLogin from '../social/SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -28,11 +29,14 @@ const Login = () => {
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-2xl font-bold">Login now!</h1>
-      <Lottie animationData={lottie}></Lottie>
+      <Lottie className='lg:w-96' animationData={lottie}></Lottie>
     </div>
     <div className="card bg-base-100 w-full shadow">
       <form onSubmit={handleSubmit} className="card-body">
         <p className='text-center'>New to This Page? <Link className='text-red-600' to={'/register'}>Register</Link></p>
+        <button type='button' className='btn text-center'>
+            <SocialLogin></SocialLogin>
+        </button>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
