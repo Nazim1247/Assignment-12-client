@@ -1,12 +1,18 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddProperty = () => {
+  const {user} = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
+
   const onSubmit = async (data) => {
     console.log(data)
     // img upload to imgbb and then get an url
@@ -16,8 +22,21 @@ const AddProperty = () => {
             'content-type':'multipart/form-data'
         }
     })
-    console.log(res.data)
+    if(res.data.success){
+      const propertyData = {
+        agentName: user?.displayName,
+        agentEmail: user?.email,
+        title: data.title,
+        location: data.location,
+        price: parseFloat(data.price),
+        image: res.data.data.display_url
+      }
+      //save property to database
+      const propertyRes = await axiosSecure.post('/properties',propertyData)
+      console.log(propertyRes.data)
+    }
   }
+
     return (
         <div>
             <div className="hero">
@@ -32,23 +51,27 @@ const AddProperty = () => {
           <label className="label">
             <span className="label-text">Name</span>
           </label>
-          <input type="text" {...register("name")} placeholder="name" className="input input-bordered" required />
+          <input type="text" {...register("name")}
+          defaultValue={user.displayName}
+          placeholder="name" className="input input-bordered" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" {...register("email")} placeholder="email" className="input input-bordered" required />
+          <input type="email" {...register("email")}
+          defaultValue={user.email}
+          placeholder="email" className="input input-bordered" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Title</span>
+            <span className="label-text">Property Title</span>
           </label>
           <input type="text" {...register("title")} placeholder="title" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Location</span>
+            <span className="label-text">Property Location</span>
           </label>
           <input type="text" {...register("location")} placeholder="Location" className="input input-bordered" required />
         </div>
@@ -60,7 +83,7 @@ const AddProperty = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Image</span>
+            <span className="label-text">Property Image</span>
           </label>
           <input
            type="file"

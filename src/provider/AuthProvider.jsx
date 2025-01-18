@@ -1,11 +1,13 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+    const axiosSecure = useAxiosSecure();
     const [user, setUser] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -35,8 +37,16 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth,(currentUser)=>{
-            setUser(currentUser)
+        const unSubscribe = onAuthStateChanged(auth,async(currentUser)=>{
+            if(currentUser?.email){
+                setUser(currentUser)
+                // save user info in db
+                await axiosSecure.post(`users/${currentUser?.email}`,
+                    {
+                        name: currentUser?.displayName, image: currentUser?.photoURL,
+                        email: currentUser?.email,
+                    })
+            }
         })
         return ()=>{
             unSubscribe();
