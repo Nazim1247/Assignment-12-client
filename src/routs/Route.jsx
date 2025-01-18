@@ -5,34 +5,43 @@ import AllProperties from "../pages/AllProperties";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ErrorPage from "../errorPage/ErrorPage";
+import AddProperty from "../pages/AddProperty";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
                 element: <Home></Home>
             },
             {
-                path: '/allProperties',
+                path: 'allProperties',
                 element: <AllProperties></AllProperties>
             },
             {
-                path: '/dashboard',
-                element: <Dashboard></Dashboard>
-            },
-            {
-                path: '/login',
+                path: 'login',
                 element: <Login></Login>
             },
             {
-                path: '/register',
+                path: 'register',
                 element: <Register></Register>
             },
         ]
-    }
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'addProperty',
+                element: <AddProperty></AddProperty>
+            }
+        ]
+    },
 ])
 
 export default router;
