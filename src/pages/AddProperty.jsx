@@ -26,9 +26,11 @@ const AddProperty = () => {
       const propertyData = {
         agentName: user?.displayName,
         agentEmail: user?.email,
+        agentImage: user?.photoURL,
         title: data.title,
         location: data.location,
         price: parseFloat(data.price),
+        description: data.description,
         image: res.data.data.display_url
       }
       //save property to database
@@ -77,9 +79,16 @@ const AddProperty = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Price</span>
+            <span className="label-text">Price Range</span>
           </label>
           <input type="number" {...register("price")} placeholder="price" className="input input-bordered" required />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Description</span>
+          </label>
+          <textarea {...register("description")} className="textarea textarea-bordered" placeholder="Description" required></textarea>
+          {/* <input type="number" {...register("price")} placeholder="price" className="input input-bordered" required /> */}
         </div>
         <div className="form-control">
           <label className="label">
