@@ -6,6 +6,7 @@ import ReviewModal from "../components/ReviewModal";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import ReviewSection from "./ReviewSection";
 
 
 const PropertyDetails = () => {
@@ -26,9 +27,6 @@ const PropertyDetails = () => {
 
     const closeModal = ()=>{
         setIsOpen(false)
-        // e.preventDefault();
-        // const review = e.target.review.value;
-        // console.log(review)
     }
 
     const handleAddToWishlist = ()=>{
@@ -44,7 +42,7 @@ const PropertyDetails = () => {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Cart has been added",
+                        title: "Cart has been added to Wishlist",
                         showConfirmButton: false,
                         timer: 1500
                       });
@@ -54,7 +52,7 @@ const PropertyDetails = () => {
     }
 
     return (
-        <div className="">
+        <div className="w-11/12 mx-auto">
             <div className="hero">
   <div className="hero-content flex-col lg:flex-row">
     <img
@@ -76,6 +74,11 @@ const PropertyDetails = () => {
     </div>
   </div>
 </div>
+
+<div>
+    <ReviewSection></ReviewSection>
+</div>
+
 <ReviewModal closeModal={closeModal} isOpen={isOpen} property={property}></ReviewModal>
         </div>
     );

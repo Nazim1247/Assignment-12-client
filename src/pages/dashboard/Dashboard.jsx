@@ -6,6 +6,11 @@ const Dashboard = () => {
         <div className="flex w-11/12 mx-auto my-8">
             <div className="w-64 min-h-screen bg-primary">
                 <ul className="menu">
+                <li><NavLink to='/dashboard/userProfile'>User Profile</NavLink></li>
+                <li><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></li>
+                <li><NavLink to='/dashboard/boughtProperties'>Bought Properties</NavLink></li>
+                <li><NavLink to='/dashboard/myReviews'>My Reviews</NavLink></li>
+
                     <li><NavLink to='/dashboard/agentProfile'>Agent Profile</NavLink></li>
                     <li><NavLink to='/dashboard/addProperty'>Add Property</NavLink></li>
                     <li><NavLink to='/dashboard/addedProperties'>My added properties</NavLink></li>
