@@ -24,7 +24,7 @@ const PropertyCard = ({property}) => {
     <p className="flex items-center"><IoLocationSharp />{location}</p>
     <p>${price}</p>
     </div>
-    <div className="card-actions">
+    <div className="">
       <Link to={`/propertyDetails/${_id}`}><button className="btn btn-sm btn-primary w-full">Details</button></Link>
     </div>
   </div>

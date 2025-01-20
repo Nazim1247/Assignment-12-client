@@ -25,7 +25,7 @@ const WishlistCart = ({wishlist}) => {
                 <p>${price}</p>
                 </div>
                 <div className="flex flex-col md:flex-row gap-2">
-                  <Link to={`/dashboard/makeOffer/${_id}`}><button className="btn btn-sm btn-primary">Make an offer</button></Link>
+                  <Link to={`/dashboard/makeOffer/${_id}`}><button className="btn btn-sm btn-primary w-full">Make an offer</button></Link>
                   <button className="btn btn-sm btn-primary">Remove</button>
                 </div>
               </div>

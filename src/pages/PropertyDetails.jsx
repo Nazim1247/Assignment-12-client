@@ -22,7 +22,9 @@ const PropertyDetails = () => {
             return data;
         }
     })
+    
     const {title, image, price, location, agentName, agentImage, description, _id}= property || {};
+
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
     const closeModal = ()=>{
@@ -64,7 +66,7 @@ const PropertyDetails = () => {
       <p className="flex items-center"><IoLocationSharp />{location}</p>
       <p className="">${price}</p>
       </div>
-      <p className="">{description}</p>
+      <p className="">Description: {description}</p>
       <div className="flex items-center justify-between">
       <img className="w-12 h-12 rounded-full" src={agentImage} alt="" />
       <p className="">{agentName}</p>
