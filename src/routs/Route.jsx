@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import ErrorPage from "../errorPage/ErrorPage";
 import AddProperty from "../pages/AddProperty";
 import PropertyDetails from "../pages/PropertyDetails";
+import UserProfile from "../pages/dashboard/pages/UserProfile";
 
 const router = createBrowserRouter([
     {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
             // user dashboard
             {
                 path: 'userProfile',
-                element: <h2>user profile</h2>
+                element: <UserProfile></UserProfile>
             },
             {
                 path: 'wishlist',
