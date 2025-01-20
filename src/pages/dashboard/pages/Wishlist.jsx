@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import WishlistCart from "./WishlistCart";
 
 const Wishlist = () => {
     const axiosSecure = useAxiosSecure();
@@ -14,7 +15,10 @@ const Wishlist = () => {
 
     return (
         <div>
-            wishlist: {wishlists.length}
+            <h2>All Wishlist: {wishlists.length}</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {wishlists.map(wishlist => <WishlistCart key={wishlist._id} wishlist={wishlist}></WishlistCart>)}
+            </div>
         </div>
     );
 };

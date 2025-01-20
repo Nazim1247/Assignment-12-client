@@ -16,8 +16,6 @@ const ReviewSection = () => {
         }
     })
 
-    console.log(reviews.length);
-
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
     return (
