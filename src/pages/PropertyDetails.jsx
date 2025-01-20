@@ -36,7 +36,7 @@ const PropertyDetails = () => {
                 email: user.email,
                 title, image, price, location, agentName, agentImage, description,
             }
-            axiosSecure.post('/carts',cartItem)
+            axiosSecure.post('/wishlists',cartItem)
             .then(res =>{
                 if(res.data.insertedId){
                     Swal.fire({

@@ -9,6 +9,7 @@ import ErrorPage from "../errorPage/ErrorPage";
 import AddProperty from "../pages/AddProperty";
 import PropertyDetails from "../pages/PropertyDetails";
 import UserProfile from "../pages/dashboard/pages/UserProfile";
+import Wishlist from "../pages/dashboard/pages/Wishlist";
 
 const router = createBrowserRouter([
     {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'wishlist',
-                element: <h2>wishlist</h2>
+                element: <Wishlist></Wishlist>
             },
             {
                 path: 'boughtProperties',
