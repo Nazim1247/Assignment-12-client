@@ -28,6 +28,7 @@ const MakeOffer = () => {
     const onSubmit = async (data)=>{
       const offerData = {
         title: data.title,
+        image: data.image,
         location: data.location,
         amount: parseFloat(data.amount),
         agentName: agentName,
@@ -61,6 +62,12 @@ const MakeOffer = () => {
             <span className="label-text">Property Title </span>
           </label>
           <input type="text" {...register("title")} defaultValue={title} placeholder="Property Title" className="input input-bordered" readOnly />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Property Image </span>
+          </label>
+          <input type="text" {...register("image")} defaultValue={image} placeholder="Property image" className="input input-bordered" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
