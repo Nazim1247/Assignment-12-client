@@ -9,14 +9,16 @@ const ReviewModal = ({ isOpen, closeModal, property }) => {
         e.preventDefault();
         closeModal();
         const rev = e.target.review.value;
-        console.log('review', rev)
+        const date = e.target.date.value;
+        
         const reviewInfo = {
             rev,
+            date,
             property
         }
         await axiosSecure.post('/reviews', reviewInfo)
         Swal.fire({
-            position: "top-end",
+            position: "top-center",
             icon: "success",
             title: "Review has been added",
             showConfirmButton: false,
@@ -34,7 +36,8 @@ const ReviewModal = ({ isOpen, closeModal, property }) => {
                         <Description>Review Form</Description>
 
                         <form onSubmit={handleSubmit}>
-                            <input name='review' type="text" placeholder="Type here Review" className="input input-bordered w-full max-w-xs" />
+                            <input name='review' type="text" placeholder="Type here Review" className="input input-bordered w-full" required />
+                            <input name='date' type="date" placeholder="Review Date" className="input input-bordered w-full mt-2" required />
                             <button className='btn btn-sm btn-primary mt-2'>Submit</button>
                         </form>
                     </DialogPanel>

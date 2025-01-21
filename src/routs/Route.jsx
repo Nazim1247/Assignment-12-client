@@ -15,6 +15,7 @@ import AgentProfile from "../pages/dashboard/pages/AgentProfile";
 import AddedProperties from "../pages/dashboard/pages/AddedProperties";
 import UpdateProperty from "../pages/dashboard/pages/UpdateProperty";
 import BoughtProperties from "../pages/dashboard/pages/BoughtProperties";
+import MyReviews from "../pages/dashboard/pages/MyReviews";
 
 const router = createBrowserRouter([
     {
@@ -67,7 +68,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'myReviews',
-                element: <h2>my reviews</h2>
+                element: <MyReviews></MyReviews>
             },
             // agent dashboard
             {
