@@ -3,18 +3,21 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddProperty = () => {
+  const navigate = useNavigate();
   const {user} = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (data) => {
-    console.log(data)
+    
     // img upload to imgbb and then get an url
     const imageFile = {image: data.image[0]};
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -34,8 +37,19 @@ const AddProperty = () => {
         image: res.data.data.display_url
       }
       //save property to database
-      const propertyRes = await axiosSecure.post('/properties',propertyData)
-      console.log(propertyRes.data)
+      await axiosSecure.post('/properties',propertyData)
+      .then(res =>{
+        if(res.data.insertedId){
+          navigate('/')
+          Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "property has been added",
+          showConfirmButton: false,
+          timer: 1500
+          });
+        }
+      })
     }
   }
 

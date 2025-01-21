@@ -42,7 +42,7 @@ const PropertyDetails = () => {
             .then(res =>{
                 if(res.data.insertedId){
                     Swal.fire({
-                        position: "top-end",
+                        position: "top-center",
                         icon: "success",
                         title: "Cart has been added to Wishlist",
                         showConfirmButton: false,

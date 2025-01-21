@@ -24,7 +24,7 @@ const UpdateProperty = () => {
       
       if(propertyRes.data.modifiedCount > 0){
         Swal.fire({
-            position: "top-end",
+            position: "top-center",
             icon: "success",
             title: "property updated successfully!",
             showConfirmButton: false,
