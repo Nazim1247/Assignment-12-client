@@ -13,6 +13,7 @@ import Wishlist from "../pages/dashboard/pages/Wishlist";
 import MakeOffer from "../pages/dashboard/pages/MakeOffer";
 import AgentProfile from "../pages/dashboard/pages/AgentProfile";
 import AddedProperties from "../pages/dashboard/pages/AddedProperties";
+import UpdateProperty from "../pages/dashboard/pages/UpdateProperty";
 
 const router = createBrowserRouter([
     {
@@ -79,6 +80,11 @@ const router = createBrowserRouter([
             {
                 path: 'addedProperties',
                 element: <AddedProperties></AddedProperties>
+            },
+            {
+                path: 'updateProperty/:id',
+                element: <UpdateProperty></UpdateProperty>,
+                loader: ({params})=> fetch(`http://localhost:5000/properties/${params.id}`)
             },
             {
                 path: 'soldProperties',

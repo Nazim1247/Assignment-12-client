@@ -30,7 +30,7 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <div>
-                <h2 className="text-2xl font-bold text-center my-8">Find Your House</h2>
+                <h2 className="text-2xl font-bold text-center my-8">Top Deals for You</h2>
                 <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {
                         properties.map(property => <PropertyCard key={property._id} property={property}></PropertyCard>)

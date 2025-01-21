@@ -35,7 +35,7 @@ const AddedProperties = () => {
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
-    console.log(properties)
+    // console.log(properties)
 
     return (
         <div>

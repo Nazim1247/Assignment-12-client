@@ -12,7 +12,7 @@ const PropertyCard = ({property}) => {
     <img
       src={image}
       alt=""
-      className="rounded-xl" />
+      className="rounded-xl w-full md:h-40" />
   </figure>
   <div className="p-4 space-y-2">
     <h2 className="card-title">{title}</h2>
