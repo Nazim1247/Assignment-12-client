@@ -6,7 +6,7 @@ import useAgent from "../../hooks/useAgent";
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
     const [isAgent] = useAgent();
-    // console.log(isAgent)
+    // console.log(isAdmin)
     return (
         <div>
             <h2 className="text-center text-2xl font-bold mt-6">Dashboard</h2>

@@ -18,6 +18,7 @@ import BoughtProperties from "../pages/dashboard/pages/BoughtProperties";
 import MyReviews from "../pages/dashboard/pages/MyReviews";
 import PrivateRoute from "./PrivateRoute";
 import ManegeUsers from "../pages/dashboard/pages/ManegeUsers";
+import AdminProfile from "../pages/dashboard/pages/AdminProfile";
 
 const router = createBrowserRouter([
     {
@@ -101,7 +102,7 @@ const router = createBrowserRouter([
             // admin dashboard
             {
                 path: 'adminProfile',
-                element: <h2>admin profile</h2>
+                element: <AdminProfile></AdminProfile>
             },
             {
                 path: 'manegeProperties',

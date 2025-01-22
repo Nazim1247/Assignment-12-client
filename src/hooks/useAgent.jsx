@@ -12,7 +12,7 @@ const useAgent = () => {
         queryFn: async()=>{
             const res = await axiosSecure.get(`/users/agent/${user?.email}`);
             // console.log(res.data);
-            return res.data?.agent;
+            return res.data;
         }
     })
     return [isAgent];
