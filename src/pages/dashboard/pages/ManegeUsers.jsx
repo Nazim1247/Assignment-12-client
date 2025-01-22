@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ManegeUsers = () => {
     const axiosSecure = useAxiosSecure();
@@ -12,6 +13,32 @@ const ManegeUsers = () => {
     })
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
+
+    const handleDelete = (user)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then(async(result) => {
+            if (result.isConfirmed) {
+                await axiosSecure.delete(`/users/${user._id}`)
+                .then(res =>{
+                    if(res.data.deletedCount > 0){
+                        refetch();
+                        Swal.fire({
+                          title: "Deleted!",
+                          text: "user has been deleted.",
+                          icon: "success"
+                        });
+                    }
+                })
+            }
+          });
+    }
 
     return (
         <div>
@@ -40,7 +67,7 @@ const ManegeUsers = () => {
                           <td>Blue</td>
                           <td>Blue</td>
                           <td>
-                            <button className="btn btn-xs btn-secondary">Delete</button>
+                            <button onClick={()=> handleDelete(user)} className="btn btn-xs btn-secondary">Delete</button>
                           </td>
                         </tr>)}
                         

@@ -9,7 +9,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const axiosSecure = useAxiosSecure();
     const [user, setUser] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
         setLoading(true)
