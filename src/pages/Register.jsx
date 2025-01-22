@@ -47,7 +47,7 @@ const Register = () => {
           ...result.user,photoURL: data.photo,
         })
         // update user
-        updateUser(data.name, data.photoURL)
+        updateUser(data.name, data.photo)
         .then(async()=>{
           // save user in db
           const userInfo = {

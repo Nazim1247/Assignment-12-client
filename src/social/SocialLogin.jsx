@@ -20,7 +20,7 @@ const SocialLogin = () => {
             }
             axiosPublic.post('/users', userInfo)
             .then(res =>{
-                console.log('google user added')
+                // console.log('google user added')
                 navigate('/')
                 if(res.data.insertedId){
                     Swal.fire({

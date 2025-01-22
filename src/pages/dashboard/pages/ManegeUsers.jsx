@@ -14,6 +14,39 @@ const ManegeUsers = () => {
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
+    const handleMakeAgent = async(user)=>{
+        await axiosSecure.patch(`/users/agent/${user._id}`)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Is an agent now!",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
+
+    const handleMakeAdmin = async (user)=>{
+        await axiosSecure.patch(`/users/admin/${user._id}`)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Is an admin now!",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
     const handleDelete = (user)=>{
         Swal.fire({
             title: "Are you sure?",
@@ -63,8 +96,12 @@ const ManegeUsers = () => {
                           <th>{i + 1}</th>
                           <td>{user.name}</td>
                           <td>{user.email}</td>
-                          <td>Blue</td>
-                          <td>Blue</td>
+                          <td>
+                            { user.role === 'admin'? 'Admin': <button onClick={()=>handleMakeAdmin(user)} className="btn btn-xs btn-primary">Make Admin</button>}
+                            </td>
+                          <td>
+                          { user.role === 'agent'? 'Agent': <button onClick={()=>handleMakeAgent(user)} className="btn btn-xs btn-primary">Make Agent</button>}
+                          </td>
                           <td>Blue</td>
                           <td>
                             <button onClick={()=> handleDelete(user)} className="btn btn-xs btn-secondary">Delete</button>
