@@ -58,7 +58,7 @@ const Register = () => {
           await axiosPublic.post('/users',userInfo)
           .then(res =>{
             if(res.data.insertedId){
-              console.log('user added')
+              // console.log('user added')
               Swal.fire({
                 position: "top-center",
                 icon: "success",
