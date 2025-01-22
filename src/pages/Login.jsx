@@ -18,7 +18,6 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
 
         loginUser(email,password)
         .then(result =>{
@@ -48,7 +47,7 @@ const Login = () => {
     </div>
     <div className="card bg-base-100 w-full shadow">
       <form onSubmit={handleSubmit} className="card-body">
-        <p className='text-center'>New to This Page? <Link className='text-red-600' to={'/register'}>Register</Link></p>
+        <p className='text-center mb-2'>New to This Page? <Link className='text-red-600' to={'/register'}>Register</Link></p>
         <button type='button' className='btn text-center'>
             <SocialLogin></SocialLogin>
         </button>

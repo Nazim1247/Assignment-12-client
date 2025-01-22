@@ -1,10 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
+import useAgent from "../../hooks/useAgent";
 
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
-    // console.log(isAdmin)
+    const [isAgent] = useAgent();
+    // console.log(isAgent)
     return (
         <div>
             <h2 className="text-center text-2xl font-bold mt-6">Dashboard</h2>
@@ -20,19 +22,23 @@ const Dashboard = () => {
                     <li><NavLink to='/dashboard/manegeReviews'>Manege Reviews</NavLink></li>
                     </>
                     :
+                    isAgent ?
                     <>
-                    <li><NavLink to='/dashboard/userProfile'>User Profile</NavLink></li>
-                <li><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></li>
-                <li><NavLink to='/dashboard/boughtProperties'>Bought Properties</NavLink></li>
-                <li><NavLink to='/dashboard/myReviews'>My Reviews</NavLink></li>
-
                     <li><NavLink to='/dashboard/agentProfile'>Agent Profile</NavLink></li>
                     <li><NavLink to='/dashboard/addProperty'>Add Property</NavLink></li>
                     <li><NavLink to='/dashboard/addedProperties'>My added properties</NavLink></li>
                     <li><NavLink to='/dashboard/soldProperties'>My sold properties</NavLink></li>
                     <li><NavLink to='/dashboard/requestedProperties'>Requested properties</NavLink></li>
                     </> 
+                    :
+                    <>
+                    <li><NavLink to='/dashboard/userProfile'>User Profile</NavLink></li>
+                <li><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></li>
+                <li><NavLink to='/dashboard/boughtProperties'>Bought Properties</NavLink></li>
+                <li><NavLink to='/dashboard/myReviews'>My Reviews</NavLink></li>
+                    </>
                 }
+                
 
                     <div className="divider"></div>
 

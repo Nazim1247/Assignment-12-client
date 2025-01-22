@@ -86,7 +86,7 @@ const Register = () => {
     </div>
     <div className="card bg-base-100 w-full shadow">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-        <p className='text-center'>Already Have an Account? <Link className='text-red-600' to={'/login'}>Login</Link></p>
+        <p className='text-center mb-2'>Already Have an Account? <Link className='text-red-600' to={'/login'}>Login</Link></p>
         <button type='button' className='btn text-center'>
             <SocialLogin></SocialLogin>
         </button>
