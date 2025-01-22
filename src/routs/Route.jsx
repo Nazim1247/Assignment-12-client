@@ -16,6 +16,8 @@ import AddedProperties from "../pages/dashboard/pages/AddedProperties";
 import UpdateProperty from "../pages/dashboard/pages/UpdateProperty";
 import BoughtProperties from "../pages/dashboard/pages/BoughtProperties";
 import MyReviews from "../pages/dashboard/pages/MyReviews";
+import PrivateRoute from "./PrivateRoute";
+import ManegeUsers from "../pages/dashboard/pages/ManegeUsers";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +49,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             // user dashboard
             {
@@ -100,6 +102,18 @@ const router = createBrowserRouter([
             {
                 path: 'adminProfile',
                 element: <h2>admin profile</h2>
+            },
+            {
+                path: 'manegeProperties',
+                element: <h2>Manege Properties</h2>
+            },
+            {
+                path: 'manegeUsers',
+                element: <ManegeUsers></ManegeUsers>
+            },
+            {
+                path: 'manegeReviews',
+                element: <h2>Manege Reviews</h2>
             },
         ]
     },

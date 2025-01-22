@@ -2,24 +2,39 @@ import Lottie from 'lottie-react';
 import lottie from '../assets/lottie2.json';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../social/SocialLogin';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const navigate = useNavigate();
     const {loginUser} = useContext(AuthContext);
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = e =>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password)
+        
 
         loginUser(email,password)
         .then(result =>{
-            navigate('/')
-            console.log(result.user)
+            navigate(from, {replace: true})
+            if(result.user){
+              Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Login Successfully!!",
+              showConfirmButton: false,
+              timer: 1500
+              });
+            }
+        })
+        .catch(error =>{
+          console.log(error.message)
         })
     }
  

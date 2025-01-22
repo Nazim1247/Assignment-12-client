@@ -26,9 +26,9 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth,googleProvider)
     }
 
-    const updateUser = (updateData)=>{
+    const updateUser = (name, photo)=>{
         setLoading(true)
-        return updateProfile(auth.currentUser,updateData)
+        return updateProfile(auth.currentUser, {displayName: name, photoURL: photo})
     }
 
     const logoutUser = ()=>{
@@ -37,16 +37,18 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth,async(currentUser)=>{
-            if(currentUser?.email){
-                setUser(currentUser)
-                // save user info in db
-                await axiosSecure.post(`users/${currentUser?.email}`,
-                    {
-                        name: currentUser?.displayName, image: currentUser?.photoURL,
-                        email: currentUser?.email,
-                    })
-            }
+        const unSubscribe = onAuthStateChanged(auth,(currentUser)=>{
+            // console.log(currentUser)
+            setUser(currentUser)
+            // if(currentUser?.email){
+            //     // save user info in db
+            //     await axiosSecure.post(`users/${currentUser?.email}`,
+            //         {
+            //             name: currentUser?.displayName, image: currentUser?.photoURL,
+            //             email: currentUser?.email,
+            //         })
+            // }
+            setLoading(false)
         })
         return ()=>{
             unSubscribe();

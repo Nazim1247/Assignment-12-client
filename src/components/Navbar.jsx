@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,7 +18,13 @@ const Navbar = () => {
       logoutUser()
       .then(() =>{
         navigate('/login')
-        console.log('logout successfully!')
+        Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Logout User Successfully!!",
+        showConfirmButton: false,
+        timer: 1500
+        });
       })
       .catch(error =>{
         console.log(error.message)
@@ -58,10 +65,10 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     {
-      user ? 
+      user && user.email ? 
       <>
       <button className='btn btn-ghost text-white' onClick={handleLogout}>Logout</button>
-      <img title={user.displayName} className='w-12 h-12 rounded-full ml-2' src={user?.photoURL} alt="" />
+      <img title={user?.displayName} className='w-12 h-12 rounded-full ml-2' src={user?.photoURL} alt="" />
       </> 
       : 
       <Link className='btn btn-ghost text-white' to='/login'>Login</Link>
