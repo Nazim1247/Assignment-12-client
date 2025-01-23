@@ -15,14 +15,14 @@ const Dashboard = () => {
                 <ul className="menu">
 
                 {
-                    isAdmin ? <>
+                    isAdmin.admin ?  <>
                     <li><NavLink to='/dashboard/adminProfile'>Admin Profile</NavLink></li>
                     <li><NavLink to='/dashboard/manegeProperties'>Manege Properties</NavLink></li>
                     <li><NavLink to='/dashboard/manegeUsers'>Manege Users</NavLink></li>
                     <li><NavLink to='/dashboard/manegeReviews'>Manege Reviews</NavLink></li>
                     </>
                     :
-                    isAgent ?
+                    isAgent.agent ?
                     <>
                     <li><NavLink to='/dashboard/agentProfile'>Agent Profile</NavLink></li>
                     <li><NavLink to='/dashboard/addProperty'>Add Property</NavLink></li>

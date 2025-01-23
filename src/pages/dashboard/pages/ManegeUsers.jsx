@@ -14,6 +14,10 @@ const ManegeUsers = () => {
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
+    const handleMark = (user)=>{
+      console.log(user);
+    }
+
     const handleMakeAgent = async(user)=>{
         await axiosSecure.patch(`/users/agent/${user._id}`)
         .then(res =>{
@@ -102,7 +106,9 @@ const ManegeUsers = () => {
                           <td>
                           { user.role === 'agent'? 'Agent': <button onClick={()=>handleMakeAgent(user)} className="btn btn-xs btn-primary">Make Agent</button>}
                           </td>
-                          <td>Blue</td>
+                          <td>
+                          <button onClick={()=>handleMark(user)} className="btn btn-xs btn-primary">Mark</button>
+                          </td>
                           <td>
                             <button onClick={()=> handleDelete(user)} className="btn btn-xs btn-secondary">Delete</button>
                           </td>

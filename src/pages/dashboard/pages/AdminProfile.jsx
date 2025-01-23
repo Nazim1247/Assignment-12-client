@@ -3,7 +3,7 @@ import useAdmin from "../../../hooks/useAdmin";
 
 const AdminProfile = () => {
     const [isAdmin] = useAdmin();
-    console.log(isAdmin)
+    // console.log(isAdmin)
     return (
         <div className="text-center p-10 space-y-2">
             <img className="w-32 h-32 rounded-full mx-auto" src={isAdmin?.user?.photo} alt="" />
