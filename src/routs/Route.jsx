@@ -23,6 +23,7 @@ import ManegeProperties from "../pages/dashboard/pages/ManegeProperties";
 import ManegeReviews from "../pages/dashboard/pages/ManegeReviews";
 import AdminRoute from "./AdminRoute";
 import Payment from "../pages/dashboard/pages/payment/Payment";
+import RequestedProperties from "../pages/dashboard/pages/RequestedProperties";
 
 const router = createBrowserRouter([
     {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'propertyDetails/:id',
-                element: <PropertyDetails></PropertyDetails>
+                element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>
             },
             {
                 path: 'login',
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        element: <Dashboard></Dashboard>,
         children: [
             // user dashboard
             {
@@ -105,7 +106,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'requestedProperties',
-                element: <h2>requested properties</h2>
+                element: <RequestedProperties></RequestedProperties>
             },
             // admin dashboard
             {

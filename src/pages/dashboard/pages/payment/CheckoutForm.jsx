@@ -16,6 +16,9 @@ const CheckoutForm = () => {
 
     const totalAmount = offers.reduce((total,item)=> total + item.amount, 0);
 
+    // const amount = offers.map(offer => offer.amount)
+    // console.log(amount)
+
     useEffect(()=>{
         if(totalAmount > 0){
             axiosSecure.post('/create-payment-intent', {price: totalAmount})
@@ -72,6 +75,7 @@ const CheckoutForm = () => {
                 setTransactionId(paymentIntent.id);
                 // save payment in the database 
                 const payment ={
+                    name: user.displayName,
                     email: user.email,
                     transactionId: paymentIntent.id,
                     price: totalAmount,

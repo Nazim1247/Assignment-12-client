@@ -20,10 +20,10 @@ const BoughtProperties = () => {
         <div className="border rounded-md">
             <div className="flex items-center justify-between bg-primary mb-4 p-2 rounded-t-md">
                 <h2 className="text-xl font-bold text-white">All Bought Properties: ({offers.length})</h2>
-                {offers.length ? <Link to='/dashboard/payment'><button className="btn btn-sm btn-secondary">Pay</button></Link>
+                {/* {offers.length ? <Link to='/dashboard/payment'><button className="btn btn-sm btn-secondary">Pay</button></Link>
                 :
                 <button disabled className="btn btn-sm btn-secondary">Pay</button>
-                }
+                } */}
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
@@ -43,7 +43,7 @@ const BoughtProperties = () => {
                 </div>
                 <h3 className="text-md font-semibold">Agent:  {offer.agentName}</h3>
                 <p>Status: {offer.status}...</p>
-                {/* <Link to='/dashboard/payment'><button className="btn btn-sm btn-primary mt-2">Pay</button></Link> */}
+                <Link to='/dashboard/payment'><button className="btn btn-sm btn-primary mt-2">Pay</button></Link>
               </div>
             </div>
                 )
