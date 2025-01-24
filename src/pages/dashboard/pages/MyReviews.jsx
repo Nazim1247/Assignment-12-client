@@ -58,8 +58,8 @@ const MyReviews = () => {
             <div className="space-y-4">
                 {reviews.map(review => 
                     <div key={review._id} className=" space-y-2 border rounded-md p-6">
-                        <h2>Property: {review.property.title}</h2>
-                        <h2>Agent: {review.property.agentName}</h2>
+                        <h2 className="text-2xl font-bold text-green-600">Property: {review.property.title}</h2>
+                        <h2 className="text-xl font-semibold">Agent: {review.property.agentName}</h2>
                         <p>Date: {review.date}</p>
                         <p>Description: {review.rev}</p>
                         <button onClick={()=> handleReview(review._id)} className="btn btn-sm btn-primary">Delete</button>

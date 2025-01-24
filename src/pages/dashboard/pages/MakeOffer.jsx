@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 
 
 const MakeOffer = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
     const {user} = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
@@ -21,12 +22,13 @@ const MakeOffer = () => {
         }
     })
 
-    const {title, image, price, location, agentName, agentImage, description, _id}= wishlists || {};
+    const {title, image, location, agentName, _id}= wishlists || {};
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
     const onSubmit = async (data)=>{
       const offerData = {
+        propertyId: _id,
         title: data.title,
         image: data.image,
         location: data.location,
@@ -40,8 +42,8 @@ const MakeOffer = () => {
       //save offer to database
       await axiosSecure.post('/offers',offerData)
       .then(res => {
-        
         if(res.data.insertedId){
+          navigate('/dashboard/boughtProperties')
           Swal.fire({
           position: "top-center",
           icon: "success",

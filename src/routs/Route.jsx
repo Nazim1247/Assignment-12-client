@@ -21,6 +21,8 @@ import ManegeUsers from "../pages/dashboard/pages/ManegeUsers";
 import AdminProfile from "../pages/dashboard/pages/AdminProfile";
 import ManegeProperties from "../pages/dashboard/pages/ManegeProperties";
 import ManegeReviews from "../pages/dashboard/pages/ManegeReviews";
+import AdminRoute from "./AdminRoute";
+import Payment from "../pages/dashboard/pages/payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -75,6 +77,10 @@ const router = createBrowserRouter([
                 path: 'myReviews',
                 element: <MyReviews></MyReviews>
             },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
+            },
             // agent dashboard
             {
                 path: 'agentProfile',
@@ -104,19 +110,19 @@ const router = createBrowserRouter([
             // admin dashboard
             {
                 path: 'adminProfile',
-                element: <AdminProfile></AdminProfile>
+                element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
             },
             {
                 path: 'manegeProperties',
-                element: <ManegeProperties></ManegeProperties>
+                element: <AdminRoute><ManegeProperties></ManegeProperties></AdminRoute>
             },
             {
                 path: 'manegeUsers',
-                element: <ManegeUsers></ManegeUsers>
+                element: <AdminRoute><ManegeUsers></ManegeUsers></AdminRoute>
             },
             {
                 path: 'manegeReviews',
-                element: <ManegeReviews></ManegeReviews>
+                element: <AdminRoute><ManegeReviews></ManegeReviews></AdminRoute>
             },
         ]
     },

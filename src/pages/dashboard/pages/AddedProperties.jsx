@@ -5,9 +5,12 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+// import useAgent from "../../../hooks/useAgent";
 
 
 const AddedProperties = () => {
+  // const [isAgent] = useAgent();
+  
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
     // const [properties, setProperties] = useState([]);
