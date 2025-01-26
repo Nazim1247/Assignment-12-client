@@ -2,22 +2,21 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
-const CheckoutForm = () => {
+const CheckoutForm = ({offer}) => {
+
     const [transactionId,setTransactionId] = useState('');
     const {user} = useContext(AuthContext);
     const [clientSecret,setClientSecret] = useState('');
-    const [offers,setOffers] = useState([]);
     const [error,setError] = useState('');
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
 
-    const totalAmount = offers.reduce((total,item)=> total + item.amount, 0);
-
-    // const amount = offers.map(offer => offer.amount)
-    // console.log(amount)
+    const totalAmount = offer.amount;
+    // console.log(price)
 
     useEffect(()=>{
         if(totalAmount > 0){
@@ -26,16 +25,7 @@ const CheckoutForm = () => {
             setClientSecret(res.data.clientSecret)
         })
         }
-
-        fetchAllOffers();
     },[axiosSecure,totalAmount])
-
-    const fetchAllOffers = async ()=>{
-        await axiosSecure.get(`/offers`)
-        .then(res =>{
-            setOffers(res.data);
-        })
-    }
 
     const handleSubmit = async (event)=>{
         event.preventDefault();
@@ -75,16 +65,25 @@ const CheckoutForm = () => {
                 setTransactionId(paymentIntent.id);
                 // save payment in the database 
                 const payment ={
-                    name: user.displayName,
-                    email: user.email,
+                    name: user?.displayName,
+                    email: user?.email,
                     transactionId: paymentIntent.id,
                     price: totalAmount,
                     date: new Date(),
-                    offersId: offers.map(offer => offer._id),
-                    propertyId: offers.map(offer => offer.propertyId),
+                    offerId: offer._id,
+                    title: offer.title,
+                    location: offer.location
+                    
                 }
                 const res = await axiosSecure.post('/payments',payment)
                 console.log('payment saved',res.data)
+                Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Payment successfully!",
+                showConfirmButton: false,
+                timer: 1500
+                });
             }
         }
 

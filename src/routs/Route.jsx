@@ -24,6 +24,8 @@ import ManegeReviews from "../pages/dashboard/pages/ManegeReviews";
 import AdminRoute from "./AdminRoute";
 import Payment from "../pages/dashboard/pages/payment/Payment";
 import RequestedProperties from "../pages/dashboard/pages/RequestedProperties";
+import AgentRoute from "./AgentRoute";
+import SoldProperties from "../pages/dashboard/pages/SoldProperties";
 
 const router = createBrowserRouter([
     {
@@ -60,53 +62,54 @@ const router = createBrowserRouter([
             // user dashboard
             {
                 path: 'userProfile',
-                element: <UserProfile></UserProfile>
+                element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
             },
             {
                 path: 'wishlist',
-                element: <Wishlist></Wishlist>
+                element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>
             },
             {
                 path: 'makeOffer/:id',
-                element: <MakeOffer></MakeOffer>
+                element: <PrivateRoute><MakeOffer></MakeOffer></PrivateRoute>
             },
             {
                 path: 'boughtProperties',
-                element: <BoughtProperties></BoughtProperties>
+                element: <PrivateRoute><BoughtProperties></BoughtProperties></PrivateRoute>
             },
             {
                 path: 'myReviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
-                path: 'payment',
-                element: <Payment></Payment>
+                path: 'payment/:id',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+                loader: ({params})=> fetch(`http://localhost:5000/offers/${params.id}`)
             },
             // agent dashboard
             {
                 path: 'agentProfile',
-                element: <AgentProfile></AgentProfile>
+                element: <AgentRoute><AgentProfile></AgentProfile></AgentRoute>
             },
             {
                 path: 'addProperty',
-                element: <AddProperty></AddProperty>
+                element: <AgentRoute><AddProperty></AddProperty></AgentRoute>
             },
             {
                 path: 'addedProperties',
-                element: <AddedProperties></AddedProperties>
+                element: <AgentRoute><AddedProperties></AddedProperties></AgentRoute>
             },
             {
                 path: 'updateProperty/:id',
-                element: <UpdateProperty></UpdateProperty>,
+                element: <AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/properties/${params.id}`)
             },
             {
                 path: 'soldProperties',
-                element: <h2>my sold properties</h2>
+                element: <AgentRoute><SoldProperties></SoldProperties></AgentRoute>
             },
             {
                 path: 'requestedProperties',
-                element: <RequestedProperties></RequestedProperties>
+                element: <AgentRoute><RequestedProperties></RequestedProperties></AgentRoute>
             },
             // admin dashboard
             {

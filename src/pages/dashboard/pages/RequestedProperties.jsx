@@ -40,7 +40,7 @@ const RequestedProperties = () => {
         <td>{offer.location}</td>
         <td>{offer.bayerName}</td>
         <td>{offer.bayerEmail}</td>
-        <td>{offer.price}</td>
+        <td>${offer.amount}</td>
         <td>
             <button className="btn btn-xs btn-primary">Accept</button>
         </td>

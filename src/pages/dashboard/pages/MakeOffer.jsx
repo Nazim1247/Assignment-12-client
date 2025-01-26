@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 
 const MakeOffer = () => {
+  const [amount,setAmount] = useState(0);
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit} = useForm();
     const {user} = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
     const {id} = useParams();
@@ -22,7 +23,7 @@ const MakeOffer = () => {
         }
     })
 
-    const {title, image, location, agentName, _id}= wishlists || {};
+    const {title, image, location, agentName, _id, price}= wishlists || {};
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
@@ -54,6 +55,22 @@ const MakeOffer = () => {
         }
       })
     }
+    
+    const handleAmount = value =>{
+      // console.log('clicked',value)
+      if(value > price){
+        // console.log(price)
+        setAmount(price);
+        return;
+      }
+      if(value < 0){
+        setAmount(1);
+        return;
+      }
+      setAmount(value)
+    }
+    // console.log(amount)
+
     return (
         <div>
     <div className="w-full">
@@ -97,9 +114,15 @@ const MakeOffer = () => {
         </div>
         <div className="form-control">
           <label className="label">
+            <span className="label-text">Price</span>
+          </label>
+          <input type="text" defaultValue={price} placeholder="price" className="input input-bordered" readOnly />
+        </div>
+        <div className="form-control">
+          <label className="label">
             <span className="label-text">Offer Amount</span>
           </label>
-          <input type="number" {...register("amount")} placeholder="Offer Amount" className="input input-bordered" required />
+          <input value={amount}  type="number" {...register("amount",{onChange:(e)=> handleAmount(e.target.value)})} id="amount" name="amount" placeholder="Offer Amount" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
@@ -108,7 +131,7 @@ const MakeOffer = () => {
           <input type="date" {...register("date")} placeholder="Baying Date" className="input input-bordered" required />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Offer</button>
+          {user && <button className="btn btn-primary">Offer</button>}
         </div>
       </form>
     </div>

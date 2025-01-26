@@ -38,7 +38,6 @@ const Dashboard = () => {
                 <li><NavLink to='/dashboard/myReviews'>My Reviews</NavLink></li>
                     </>
                 }
-                
 
                     <div className="divider"></div>
 

@@ -43,7 +43,7 @@ const BoughtProperties = () => {
                 </div>
                 <h3 className="text-md font-semibold">Agent:  {offer.agentName}</h3>
                 <p>Status: {offer.status}...</p>
-                <Link to='/dashboard/payment'><button className="btn btn-sm btn-primary mt-2">Pay</button></Link>
+                <Link to={`/dashboard/payment/${offer._id}`}><button className="btn btn-sm btn-primary mt-2">Pay</button></Link>
               </div>
             </div>
                 )

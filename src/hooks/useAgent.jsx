@@ -7,15 +7,16 @@ import { useQuery } from "@tanstack/react-query";
 const useAgent = () => {
     const {user} = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const {data: isAgent = {}} = useQuery({
-        queryKey: [user?.email, 'isAgent'],
+    const {data: isAgent = {},isLoading: isAgentLoading} = useQuery({
+        queryKey: ['isAgent', user?.email],
         queryFn: async()=>{
             const res = await axiosSecure.get(`/users/agent/${user?.email}`);
             // console.log(res.data);
             return res.data;
-        }
+        },
+        enabled: !!user?.email
     })
-    return [isAgent];
+    return [isAgent,isAgentLoading];
 };
 
 export default useAgent;

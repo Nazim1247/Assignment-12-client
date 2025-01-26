@@ -1,17 +1,17 @@
-import { useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
+
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import ReviewCart from "./ReviewCart";
 
 
-const ReviewSection = () => {
-    const {user} = useContext(AuthContext);
+const ReviewSection = ({propertyId}) => {
+    // console.log(propertyId)
+
     const axiosSecure = useAxiosSecure();
     const {data: reviews = [], isLoading, refetch} = useQuery({
-        queryKey: ['reviews', user?.email],
+        queryKey: ['reviews', propertyId],
         queryFn: async ()=>{
-            const {data} = await axiosSecure.get(`/reviews/${user?.email}`)
+            const {data} = await axiosSecure.get(`/reviews/${propertyId}`)
             return data;
         }
     })
