@@ -32,7 +32,7 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <div>
-                <h2 className="text-2xl font-bold text-center my-8">Top Deals for You</h2>
+                <h2 className="text-2xl font-bold text-center my-8 text-green-600">Top Deals for You</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {
                         properties.map(property => <PropertyCard key={property._id} property={property}></PropertyCard>)
@@ -40,7 +40,7 @@ const Home = () => {
                 </div>
             </div>
             <div>
-                <h2 className="text-2xl font-bold text-center my-8">Latest Users Reviews</h2>
+                <h2 className="text-2xl font-bold text-center my-8 text-green-600">Latest Users Reviews</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {
                         reviews.map(review => <ReviewCart key={review._id} review={review}></ReviewCart>)

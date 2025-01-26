@@ -1,4 +1,5 @@
 
+import { FaHome } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const PropertyCard = ({property}) => {
       className="rounded-xl w-full md:h-40" />
   </figure>
   <div className="p-4 space-y-2">
-    <h2 className="card-title">{title}</h2>
+    <h2 className="card-title text-green-600"><FaHome />{title}</h2>
     <div className="flex items-center justify-between">
     <img className="w-12 h-12 rounded-full" src={agentImage} alt="" />
     <h3 className="text-md font-semibold">{agentName}</h3>

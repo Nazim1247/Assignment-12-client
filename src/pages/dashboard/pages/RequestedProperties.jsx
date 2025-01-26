@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useState } from "react";
 
 
 const RequestedProperties = () => {
+  const [status,setStatus]=useState(null);
     const axiosSecure = useAxiosSecure();
     const {data: offers, isLoading, refetch} = useQuery({
         queryKey: ['offers'],
@@ -12,6 +14,14 @@ const RequestedProperties = () => {
         }
     })
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
+
+    const handleAccept = ()=>{
+      setStatus('accepted');
+    }
+
+    const handleReject = ()=>{
+      setStatus('rejected');
+    }
     return (
         <div>
             All Offers: {offers.length}
@@ -42,10 +52,10 @@ const RequestedProperties = () => {
         <td>{offer.bayerEmail}</td>
         <td>${offer.amount}</td>
         <td>
-            <button className="btn btn-xs btn-primary">Accept</button>
+            <button onClick={handleAccept} disabled={status === 'accepted' || status === 'rejected'} className="btn btn-xs btn-primary">Accept</button>
         </td>
         <td>
-        <button className="btn btn-xs btn-secondary">Reject</button>
+        <button onClick={handleReject} disabled={status === 'accepted' || status === 'rejected'} className="btn btn-xs btn-secondary">Reject</button>
         </td>
       </tr>
         )

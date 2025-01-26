@@ -1,3 +1,5 @@
+import { FaHome } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 
@@ -36,7 +38,7 @@ const FeaturedSection = () => {
   return (
     <section className="py-10">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-6">Featured Properties</h2>
+        <h2 className="text-3xl font-bold text-center mb-6 text-green-600">Featured Properties</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {featuredProperties.map((property) => (
             <div key={property.id} className="shadow rounded-lg overflow-hidden">
@@ -46,8 +48,8 @@ const FeaturedSection = () => {
                 className="w-full h-48 md:h-40 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-semibold">{property.name}</h3>
-                <p className="text-gray-600">{property.location}</p>
+                <h3 className="text-xl font-semibold flex items-center gap-2"><FaHome />{property.name}</h3>
+                <p className="text-gray-600 flex items-center gap-2"><FaLocationDot />{property.location}</p>
                 <p className="text-lg font-bold text-green-600">{property.price}</p>
                 <Link to='/allProperties'><button className="mt-4 btn btn-sm btn-primary w-full">
                   View All Properties
