@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useState } from "react";
 import useAgent from "../../../hooks/useAgent";
+import Swal from "sweetalert2";
 
 
 const RequestedProperties = () => {
   const [isAgent] = useAgent();
-  const [status,setStatus]=useState(null);
     const axiosSecure = useAxiosSecure();
     const {data: offers, isLoading, refetch} = useQuery({
         queryKey: ['offers'],
@@ -17,12 +16,38 @@ const RequestedProperties = () => {
     })
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
-    const handleAccept = ()=>{
-      setStatus('accepted');
+    const handleAccept = async (id)=>{
+      await axiosSecure.patch(`/offer/accept/${id}`)
+              .then(res =>{
+                  // console.log(res.data)
+                  if(res.data.modifiedCount > 0){
+                      refetch();
+                      Swal.fire({
+                          position: "top-end",
+                          icon: "success",
+                          title: "Is an agent now!",
+                          showConfirmButton: false,
+                          timer: 1500
+                        });
+                  }
+              })
     }
 
-    const handleReject = ()=>{
-      setStatus('rejected');
+    const handleReject = async (id)=>{
+      await axiosSecure.patch(`/offer/reject/${id}`)
+      .then(res =>{
+          // console.log(res.data)
+          if(res.data.modifiedCount > 0){
+              refetch();
+              Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Is an agent now!",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+          }
+      })
     }
     return (
         <div>
@@ -56,10 +81,12 @@ const RequestedProperties = () => {
         <td>{offer.bayerEmail}</td>
         <td>${offer.amount}</td>
         <td>
-            <button onClick={handleAccept} disabled={status === 'accepted' || status === 'rejected'} className="btn btn-xs btn-primary">Accept</button>
+            {offer.status ==='accepted'?'Accepted':
+            <button onClick={()=>handleAccept(offer._id)} className="btn btn-xs btn-primary" disabled={offer.status==='rejected'}>Accept</button>}
         </td>
         <td>
-        <button onClick={handleReject} disabled={status === 'accepted' || status === 'rejected'} className="btn btn-xs btn-secondary">Reject</button>
+        {offer.status==='rejected'?'Rejected':
+        <button onClick={()=>handleReject(offer._id)} className="btn btn-xs btn-secondary" disabled={offer.status==='accepted'}>Reject</button>}
         </td>
       </tr>
         )

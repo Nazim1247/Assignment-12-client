@@ -7,6 +7,7 @@ const AllProperties = () => {
     const [search, setSearch] = useState('');
     const [properties,setProperties] = useState([]);
     const axiosPublic = useAxiosPublic();
+
     // const {data: properties, isLoading} = useQuery({
     //     queryKey: ['properties'],
     //     queryFn: async()=>{
@@ -16,6 +17,7 @@ const AllProperties = () => {
     // })
     // if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 // console.log(search)
+
     useEffect(()=>{
         const fetchAllProperties = async()=>{
            const res = await axiosPublic.get(`/all-properties?search=${search}`)

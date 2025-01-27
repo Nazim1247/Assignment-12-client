@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const PropertyCard = ({property}) => {
-    const {title, image, price, location, agentName, agentImage, _id} = property || {};
+    const {title, image, price, location, agentName, agentImage, status, _id} = property || {};
     return (
         <div>
             <div className="card shadow h-full flex flex-col justify-between">
@@ -19,6 +19,7 @@ const PropertyCard = ({property}) => {
     <h2 className="card-title text-green-600"><FaHome />{title}</h2>
     <div className="flex items-center justify-between">
     <img className="w-12 h-12 rounded-full" src={agentImage} alt="" />
+    <p>{status}</p>
     <h3 className="text-md font-semibold flex items-center gap-1"><FaUser />{agentName}</h3>
     </div>
     <div className="flex items-center justify-between">

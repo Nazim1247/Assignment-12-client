@@ -39,8 +39,11 @@ const BoughtProperties = () => {
                 <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{offer.location}</p>
                 <p className="text-green-600 border rounded-3xl px-1">${offer.amount}</p>
                 </div>
-                <p>Status: {offer.status}...</p>
+                <p>Status: {offer.status}</p>
+                {offer.status==='accepted'?
                 <Link to={`/dashboard/payment/${offer._id}`}><button className="btn btn-sm btn-primary mt-2">Pay</button></Link>
+                :
+                <button disabled className="btn btn-sm btn-primary mt-2">Pay</button>}
               </div>
             </div>
                 )
