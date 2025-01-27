@@ -79,7 +79,9 @@ const ManegeUsers = () => {
 
     return (
         <div>
-            All Users: {users.length}
+            <div className="bg-primary mb-4 p-2 rounded-t-lg">
+            <h2 className="text-2xl font-bold text-white">All Users: ({users.length})</h2>
+            </div>
             <div>
             <div className="overflow-x-auto">
                     <table className="table w-full">

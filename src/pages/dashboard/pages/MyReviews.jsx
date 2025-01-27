@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -7,15 +7,6 @@ import { useQuery } from "@tanstack/react-query";
 const MyReviews = () => {
     const {user} = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    // const [reviews, setReviews] = useState([]);
-
-    // useEffect(()=>{
-    //     const fetchAllReviews = async ()=>{
-    //         const {data} = await axiosSecure.get(`/reviews/${user?.email}`)
-    //         return setReviews(data);
-    //     }
-    //     fetchAllReviews();
-    // },[])
 
     const {data: reviews = [], isLoading, refetch} = useQuery({
         queryKey: ['reviews', user?.email],
@@ -54,7 +45,9 @@ const MyReviews = () => {
 
     return (
         <div>
-            myReviews: {reviews.length}
+            <div className="bg-primary mb-4 p-2 rounded-t-lg">
+            <h2 className="text-2xl font-bold text-white">My All Reviews: ({reviews.length})</h2>
+            </div>
             <div className="space-y-4">
                 {reviews.map(review => 
                     <div key={review._id} className=" space-y-2 border rounded-md p-6">
@@ -62,7 +55,7 @@ const MyReviews = () => {
                         <h2 className="text-xl font-semibold">Agent: {review.property.agentName}</h2>
                         <p>Date: {review.date}</p>
                         <p>Description: {review.rev}</p>
-                        <button onClick={()=> handleReview(review._id)} className="btn btn-sm btn-primary">Delete</button>
+                        <button onClick={()=> handleReview(review._id)} className="btn btn-sm btn-secondary">Delete</button>
                     </div>
                 )}
             </div>

@@ -1,15 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useState } from "react";
+import useAgent from "../../../hooks/useAgent";
 
 
 const RequestedProperties = () => {
+  const [isAgent] = useAgent();
   const [status,setStatus]=useState(null);
     const axiosSecure = useAxiosSecure();
     const {data: offers, isLoading, refetch} = useQuery({
         queryKey: ['offers'],
         queryFn: async()=>{
-            const {data} = await axiosSecure.get('/offers')
+            const {data} = await axiosSecure.get(`/requested-offers/${isAgent?.user?.email}`)
             return data;
         }
     })
@@ -24,7 +26,9 @@ const RequestedProperties = () => {
     }
     return (
         <div>
-            All Offers: {offers.length}
+            <div className="bg-primary mb-4 p-2 rounded-t-lg">
+            <h2 className="text-2xl font-bold text-white">All Requested Properties: ({offers.length})</h2>
+            </div>
             <div>
             <div className="overflow-x-auto">
   <table className="table">

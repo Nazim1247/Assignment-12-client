@@ -23,7 +23,7 @@ const MakeOffer = () => {
         }
     })
 
-    const {title, image, location, agentName, _id, price}= wishlists || {};
+    const {title, image, location, agentName, agentEmail, _id, price}= wishlists || {};
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
@@ -35,6 +35,7 @@ const MakeOffer = () => {
         location: data.location,
         amount: parseFloat(data.amount),
         agentName: agentName,
+        agentEmail: agentEmail,
         date: data.date,
         bayerName: user?.displayName,
         bayerEmail: user?.email,
@@ -56,10 +57,8 @@ const MakeOffer = () => {
       })
     }
     
-    const handleAmount = value =>{
-      // console.log('clicked',value)
+    const handleAmount = value =>{ 
       if(value > price){
-        // console.log(price)
         setAmount(price);
         return;
       }
@@ -69,7 +68,6 @@ const MakeOffer = () => {
       }
       setAmount(value)
     }
-    // console.log(amount)
 
     return (
         <div>
@@ -99,6 +97,12 @@ const MakeOffer = () => {
             <span className="label-text">Agent Name</span>
           </label>
           <input type="text" {...register("name")} defaultValue={agentName} placeholder="agent name" className="input input-bordered" readOnly />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Agent Email</span>
+          </label>
+          <input type="email" {...register("email")} defaultValue={agentEmail} placeholder="agent email" className="input input-bordered" readOnly />
         </div>
         <div className="form-control">
           <label className="label">

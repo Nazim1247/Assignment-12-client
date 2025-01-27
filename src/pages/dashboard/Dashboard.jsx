@@ -9,9 +9,9 @@ const Dashboard = () => {
     // console.log(isAdmin)
     return (
         <div>
-            <h2 className="text-center text-2xl font-bold mt-6 text-green-600">Your Dashboard</h2>
+            <h2 className="text-center text-3xl font-bold mt-6 text-green-600">Dashboard</h2>
             <div className="md:flex w-11/12 mx-auto my-6 gap-4">
-            <div className="w-64 min-h-screen bg-gray-200">
+            <div className="w-64 min-h-screen bg-gray-200 rounded-lg">
                 <ul className="menu">
 
                 {
@@ -26,9 +26,9 @@ const Dashboard = () => {
                     <>
                     <li><NavLink to='/dashboard/agentProfile'>Agent Profile</NavLink></li>
                     <li><NavLink to='/dashboard/addProperty'>Add Property</NavLink></li>
-                    <li><NavLink to='/dashboard/addedProperties'>My added properties</NavLink></li>
-                    <li><NavLink to='/dashboard/soldProperties'>My sold properties</NavLink></li>
-                    <li><NavLink to='/dashboard/requestedProperties'>Requested properties</NavLink></li>
+                    <li><NavLink to='/dashboard/addedProperties'>My Added Properties</NavLink></li>
+                    <li><NavLink to='/dashboard/soldProperties'>My Sold Properties</NavLink></li>
+                    <li><NavLink to='/dashboard/requestedProperties'>Requested Properties</NavLink></li>
                     </> 
                     :
                     <>

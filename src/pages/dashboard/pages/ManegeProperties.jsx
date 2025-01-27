@@ -15,7 +15,9 @@ const ManegeProperties = () => {
 
     return (
         <div>
-            manegeProperties: {properties.length}
+            <div className="bg-primary mb-4 p-2 rounded-t-lg">
+            <h2 className="text-2xl font-bold text-white">All Properties: ({properties.length})</h2>
+            </div>
             <div>
             <div className="overflow-x-auto">
   <table className="table">

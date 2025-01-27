@@ -40,7 +40,7 @@ const AddProperty = () => {
       await axiosSecure.post('/properties',propertyData)
       .then(res =>{
         if(res.data.insertedId){
-          navigate('/')
+          navigate('/dashboard/addedProperties')
           Swal.fire({
           position: "top-center",
           icon: "success",
@@ -57,10 +57,9 @@ const AddProperty = () => {
         <div>
             <div className="hero">
   <div className="hero-content flex-col w-full">
-    <div className="text-center lg:text-left">
-      <h1 className="text-3xl font-bold">Add Property</h1>
-      
-    </div>
+      <div className="bg-primary p-2 rounded-t-lg w-full">
+      <h1 className="text-2xl font-bold text-white text-center">Add a Property</h1>
+      </div>
     <div className="card w-full shadow">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
@@ -102,7 +101,7 @@ const AddProperty = () => {
             <span className="label-text">Description</span>
           </label>
           <textarea {...register("description")} className="textarea textarea-bordered" placeholder="Description" required></textarea>
-          {/* <input type="number" {...register("price")} placeholder="price" className="input input-bordered" required /> */}
+          
         </div>
         <div className="form-control">
           <label className="label">

@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/offers/${params.id}`)
+                loader: ({params})=> fetch(`http://localhost:5000/offer/${params.id}`)
             },
             // agent dashboard
             {

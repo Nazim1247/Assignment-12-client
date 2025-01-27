@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 
 const CheckoutForm = ({offer}) => {
-
+// console.log(offer)
     const [transactionId,setTransactionId] = useState('');
     const {user} = useContext(AuthContext);
     const [clientSecret,setClientSecret] = useState('');
@@ -16,12 +16,13 @@ const CheckoutForm = ({offer}) => {
     const axiosSecure = useAxiosSecure();
 
     const totalAmount = offer.amount;
-    // console.log(price)
+    // console.log(totalAmount)
 
     useEffect(()=>{
         if(totalAmount > 0){
-            axiosSecure.post('/create-payment-intent', {price: totalAmount})
+           axiosSecure.post('/create-payment-intent', {price: totalAmount})
         .then(res =>{
+            // console.log(res.data.clientSecret)
             setClientSecret(res.data.clientSecret)
         })
         }
@@ -53,7 +54,7 @@ const CheckoutForm = ({offer}) => {
                 card: card,
                 billing_details: {
                     email: user?.email || 'anonymous',
-                    name: user?.displayName || 'anonymous'
+                    name: user?.displayName || 'anonymous',
                 }
             }
         })
@@ -67,6 +68,7 @@ const CheckoutForm = ({offer}) => {
                 const payment ={
                     name: user?.displayName,
                     email: user?.email,
+                    agentEmail: offer?.agentEmail,
                     transactionId: paymentIntent.id,
                     price: totalAmount,
                     date: new Date(),

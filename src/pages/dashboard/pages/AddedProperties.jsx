@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FaUser } from "react-icons/fa";
 // import useAgent from "../../../hooks/useAgent";
 
 
@@ -40,7 +41,7 @@ const AddedProperties = () => {
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
     const handleDelete = (property)=>{
-        console.log(property)
+        // console.log(property)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -69,7 +70,9 @@ const AddedProperties = () => {
 
     return (
         <div>
-            properties: {properties.length}
+            <div className="bg-primary mb-4 p-2 rounded-t-lg">
+            <h2 className="text-2xl font-bold text-white">All Added Properties: ({properties.length})</h2>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
                 properties.map(property => 
@@ -81,18 +84,18 @@ const AddedProperties = () => {
                         className="rounded-xl w-full md:h-40" />
                     </figure>
                     <div className="p-4 space-y-2">
-                      <h2 className="card-title">{property.title}</h2>
+                      <h2 className="card-title text-green-600">{property.title}</h2>
                       <div className="flex items-center justify-between">
                       <img className="w-12 h-12 rounded-full" src={property.agentImage} alt="" />
-                      <h3 className="text-md font-semibold">{property.agentName}</h3>
+                      <h3 className="text-md font-semibold flex items-center"><FaUser /> {property.agentName}</h3>
                       </div>
                       <div className="flex items-center justify-between">
-                      <p className="flex items-center"><IoLocationSharp />{property.location}</p>
-                      <p>${property.price}</p>
+                      <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{property.location}</p>
+                      <p className="text-green-600 border rounded-3xl px-1">${property.price}</p>
                       </div>
-                      <div className="flex flex-col md:flex-row gap-2">
-                        <Link to={`/dashboard/updateProperty/${property._id}`}><button className="btn btn-sm btn-primary w-full">Update</button></Link>
-                        <button onClick={()=>handleDelete(property)} className="btn btn-sm btn-primary">Delete</button>
+                      <div className="flex gap-2 items-center justify-between">
+                        <Link to={`/dashboard/updateProperty/${property._id}`}><button className="btn btn-sm btn-primary">Update</button></Link>
+                        <button onClick={()=>handleDelete(property)} className="btn btn-sm btn-secondary">Delete</button>
                       </div>
                     </div>
                   </div>        

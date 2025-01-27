@@ -20,12 +20,16 @@ const ReviewSection = ({propertyId}) => {
 
     return (
         <div className="">
-            <h2 className="text-center text-2xl font-bold my-8">User's Reviews</h2> 
+            <h2 className="text-center text-3xl font-bold my-8">User's Reviews</h2> 
+            {reviews && reviews.length > 0 ?
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {
+            { 
             reviews.map(review => <ReviewCart key={review._id} review={review}></ReviewCart>)
+            
             }
             </div>
+            :
+            <p className="text-2xl text-center text-green-600">No Review for this Property</p>}
         </div>
     );
 };

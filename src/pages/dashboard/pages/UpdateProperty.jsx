@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 
 const UpdateProperty = () => {
+  const navigate = useNavigate();
     const property = useLoaderData();
     const { register, handleSubmit } = useForm();
     const axiosSecure = useAxiosSecure();
@@ -23,6 +24,7 @@ const UpdateProperty = () => {
       const propertyRes = await axiosSecure.patch(`/properties/${_id}`,propertyData)
       
       if(propertyRes.data.modifiedCount > 0){
+        navigate('/dashboard/addedProperties')
         Swal.fire({
             position: "top-center",
             icon: "success",
@@ -37,8 +39,8 @@ const UpdateProperty = () => {
         <div>
             <div className="hero">
   <div className="hero-content flex-col w-full">
-    <div className="text-center lg:text-left">
-      <h1 className="text-3xl font-bold">Update Property</h1>
+    <div className="bg-primary p-2 rounded-t-lg w-full">
+      <h1 className="text-2xl font-bold text-white text-center">Update Your Property</h1>
       
     </div>
     <div className="card w-full shadow">

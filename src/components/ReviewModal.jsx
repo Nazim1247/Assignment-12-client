@@ -3,8 +3,10 @@ import useAxiosSecure from '../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const ReviewModal = ({ isOpen, closeModal, property }) => {
+  const navigate = useNavigate();
   const {user} = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
 
@@ -26,6 +28,7 @@ const ReviewModal = ({ isOpen, closeModal, property }) => {
             property
         }
         await axiosSecure.post('/reviews', reviewInfo)
+        navigate('/dashboard/myReviews')
         Swal.fire({
             position: "top-center",
             icon: "success",
