@@ -21,7 +21,7 @@ const ManegeUsers = () => {
     const handleMakeAgent = async(user)=>{
         await axiosSecure.patch(`/users/agent/${user._id}`)
         .then(res =>{
-            console.log(res.data)
+            // console.log(res.data)
             if(res.data.modifiedCount > 0){
                 refetch();
                 Swal.fire({
@@ -38,7 +38,7 @@ const ManegeUsers = () => {
     const handleMakeAdmin = async (user)=>{
         await axiosSecure.patch(`/users/admin/${user._id}`)
         .then(res =>{
-            console.log(res.data)
+            // console.log(res.data)
             if(res.data.modifiedCount > 0){
                 refetch();
                 Swal.fire({

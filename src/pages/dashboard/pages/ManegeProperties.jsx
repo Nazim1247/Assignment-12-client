@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 
 const ManegeProperties = () => {
+  const [disabled, setDisabled] = useState(null);
     const axiosSecure = useAxiosSecure();
     const {data: properties, isLoading, refetch} = useQuery({
         queryKey: ['properties'],
@@ -12,6 +15,40 @@ const ManegeProperties = () => {
         }
     })
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
+
+    const handleVerify = async (id)=>{
+       await axiosSecure.patch(`/properties/verify/${id}`)
+        .then(res =>{
+            // console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Is an admin now!",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
+
+    const handleReject = async (id)=>{
+      await axiosSecure.patch(`/properties/reject/${id}`)
+      .then(res =>{
+          console.log(res.data)
+          if(res.data.modifiedCount > 0){
+              refetch();
+              Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Is an admin now!",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+          }
+      })
+    }
 
     return (
         <div>
@@ -45,10 +82,12 @@ const ManegeProperties = () => {
         <td>{property.agentEmail}</td>
         <td>{property.price}</td>
         <td>
-            <button className="btn btn-xs btn-primary">Verify</button>
+            {property.status === 'verified'? 'verified':
+            <button onClick={()=>handleVerify(property._id)} className="btn btn-xs btn-primary" disabled={property.status === 'rejected'}>Verify</button>}
         </td>
         <td>
-        <button className="btn btn-xs btn-secondary">Reject</button>
+        {property.status === 'rejected'?'rejected':
+        <button onClick={()=>handleReject(property._id)} className="btn btn-xs btn-secondary" disabled={property.status === 'verified'}>Reject</button>}
         </td>
       </tr>
         )
