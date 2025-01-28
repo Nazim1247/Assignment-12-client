@@ -20,6 +20,7 @@ const Dashboard = () => {
                     <li><NavLink to='/dashboard/manegeProperties'>Manege Properties</NavLink></li>
                     <li><NavLink to='/dashboard/manegeUsers'>Manege Users</NavLink></li>
                     <li><NavLink to='/dashboard/manegeReviews'>Manege Reviews</NavLink></li>
+                    <li><NavLink to='/dashboard/advertiseProperties'>Advertise Properties</NavLink></li>
                     </>
                     :
                     isAgent.agent ?

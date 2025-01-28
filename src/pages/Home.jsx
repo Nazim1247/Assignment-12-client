@@ -5,6 +5,7 @@ import PropertyCard from "./PropertyCard";
 import ReviewCart from "./ReviewCart";
 import FeaturedSection from "../components/FeaturedSection";
 import OfferSection from "../components/OfferSection";
+import AdvertisementSection from "./dashboard/advertiseProperties/AdvertisementSection";
 
 
 const Home = () => {
@@ -32,13 +33,16 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <div>
+                <AdvertisementSection></AdvertisementSection>
+            </div>
+            {/* <div>
                 <h2 className="text-2xl font-bold text-center my-8 text-green-600">Top Deals for You</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {
                         properties.map(property => <PropertyCard key={property._id} property={property}></PropertyCard>)
                     }
                 </div>
-            </div>
+            </div> */}
             <div>
                 <h2 className="text-2xl font-bold text-center my-8 text-green-600">Latest Users Reviews</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">

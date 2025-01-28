@@ -89,9 +89,10 @@ const AddedProperties = () => {
                       <img className="w-12 h-12 rounded-full" src={property.agentImage} alt="" />
                       <h3 className="text-md font-semibold flex items-center"><FaUser /> {property.agentName}</h3>
                       </div>
-                      <div className="flex items-center justify-between">
                       <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{property.location}</p>
-                      <p className="text-green-600 border rounded-3xl px-1">${property.price}</p>
+                      <div className="flex items-center justify-between">
+                        <p className="font-semibold text-green-600">{property.status}</p>
+                      <p className="text-green-600 border rounded-3xl px-3">${property.price}</p>
                       </div>
                       <div className="flex gap-2 items-center justify-between">
                         <Link to={`/dashboard/updateProperty/${property._id}`}><button className="btn btn-sm btn-primary">Update</button></Link>

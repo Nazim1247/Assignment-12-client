@@ -88,7 +88,10 @@ const CheckoutForm = ({offer}) => {
                 });
             }
         }
-
+        // await axiosSecure.patch(`/payments/bought/${offer._id}`)
+        // .then(res =>{
+        //     console.log(res.data)
+        // })
     }
 
     return (

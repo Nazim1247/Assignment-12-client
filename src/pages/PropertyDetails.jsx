@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import ReviewSection from "./ReviewSection";
 import useAdmin from "../hooks/useAdmin";
 import { FaUser } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
 
 const PropertyDetails = () => {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ const PropertyDetails = () => {
         }
     })
     
-    const {title, image, price, location, agentName, agentImage, agentEmail, description, _id}= property || {};
+    const {title, image, price, location, agentName, agentImage, agentEmail, status, description, _id}= property || {};
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
@@ -70,21 +71,26 @@ const PropertyDetails = () => {
       <h1 className="text-3xl font-bold text-green-600">{title}</h1>
       <div className="flex items-center justify-between">
       <img className="w-12 h-12 rounded-full" src={agentImage} alt="" />
-      <p className="flex items-center gap-2 font-semibold"><FaUser />{agentName}</p>
+      <p className="flex items-center gap-2 font-semibold"><FaUser />Agent: {agentName}</p>
       </div>
-      <p>Agent Email: {agentEmail}</p>
+      <p><span className="font-semibold">Agent Email:</span> {agentEmail}</p>
+      <p className="flex items-center gap-1"><IoLocationSharp className="text-green-600"/>{location}</p>
       <div className="flex items-center justify-between">
-      <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{location}</p>
+        <p className="flex items-center gap-1 font-semibold">Status: <span className="text-green-600">{status}</span><MdVerified className="text-blue-600"/></p>
       <p className="text-green-600 border rounded-3xl px-3">${price}</p>
       </div>
-      <p className="">Description: {description}</p>
+      <p className=""><span className="font-semibold">Description:</span> {description}</p>
        <div className="flex items-center justify-between">
        {
-       isAdmin?.user?.role !== 'admin' && isAdmin?.user?.role !== 'agent'?<button onClick={handleAddToWishlist} className="btn btn-sm btn-primary mr-2">Add to Wishlist</button>
+       isAdmin?.user?.role !== 'admin' && isAdmin?.user?.role !== 'agent'?
+       <button onClick={handleAddToWishlist} className="btn btn-sm btn-primary mr-2">Add to Wishlist</button>
        : 
        <button disabled className="btn btn-sm btn-primary mr-2">Add to Wishlist</button>
        }
+      {isAdmin?.user?.role !== 'admin' && isAdmin?.user?.role !== 'agent'?
       <button onClick={() => setIsOpen(true)} className="btn btn-sm btn-primary">Add a Review</button>
+      : 
+      <button disabled className="btn btn-sm btn-primary mr-2">Add a Review</button>}
        </div>
     </div>
   </div>

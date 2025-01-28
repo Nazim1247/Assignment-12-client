@@ -1,37 +1,24 @@
-// import { useQuery } from "@tanstack/react-query";
+
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import PropertyCard from "./PropertyCard";
 import { useEffect, useState } from "react";
 
 const AllProperties = () => {
+    const [sort, setSort]=useState('');
     const [search, setSearch] = useState('');
     const [properties,setProperties] = useState([]);
     const axiosPublic = useAxiosPublic();
 
-    // const {data: properties, isLoading} = useQuery({
-    //     queryKey: ['properties'],
-    //     queryFn: async()=>{
-    //         const {data} = await axiosPublic.get('/properties')
-    //         return data;
-    //     }
-    // })
-    // if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
-// console.log(search)
-
     useEffect(()=>{
         const fetchAllProperties = async()=>{
-           const res = await axiosPublic.get(`/all-properties?search=${search}`)
+           const res = await axiosPublic.get(`/all-properties?search=${search}&sort=${sort}`)
            setProperties(res.data)
          }
-        
         fetchAllProperties();
-    },[search]);
+    },[search,sort]);
 
     const handleSort = async()=>{
-        await axiosPublic.get('sorted-properties')
-     .then(res =>{
-         setProperties(res.data)
-     })
+    setSort('decs')
      }
 
      const handleSearch = (e)=>{
@@ -42,7 +29,7 @@ const AllProperties = () => {
         <div className="w-11/12 mx-auto">
             <div className="flex items-center justify-between bg-primary mb-4 p-2 rounded-t-lg">
                 <h2 className="text-2xl font-bold text-white">All Properties: {properties.length}</h2>
-                <button onClick={()=>handleSort()} className="btn">Sort By Price</button>
+                <button onClick={handleSort} className="btn">Sort By Price</button>
                 <label className="input input-bordered flex items-center gap-2">
               <input onChange={handleSearch} value={search} name="search" type="text" className="grow" placeholder="Search By Location" />
               <svg

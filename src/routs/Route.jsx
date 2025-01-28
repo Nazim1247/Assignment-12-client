@@ -26,6 +26,7 @@ import Payment from "../pages/dashboard/pages/payment/Payment";
 import RequestedProperties from "../pages/dashboard/pages/RequestedProperties";
 import AgentRoute from "./AgentRoute";
 import SoldProperties from "../pages/dashboard/pages/SoldProperties";
+import AdvertiseProperties from "../pages/dashboard/advertiseProperties/AdvertiseProperties";
 
 const router = createBrowserRouter([
     {
@@ -127,6 +128,10 @@ const router = createBrowserRouter([
             {
                 path: 'manegeReviews',
                 element: <AdminRoute><ManegeReviews></ManegeReviews></AdminRoute>
+            },
+            {
+                path: 'advertiseProperties',
+                element: <AdminRoute><AdvertiseProperties></AdvertiseProperties></AdminRoute>
             },
         ]
     },

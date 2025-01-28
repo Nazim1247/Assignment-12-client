@@ -14,6 +14,10 @@ const SoldProperties = () => {
         }
     })
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
+
+    const totalAmount = payments.reduce((total,property)=> total + property.price,0);
+    // console.log(totalAmount)
+
     return (
         <div>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
@@ -45,6 +49,10 @@ const SoldProperties = () => {
 
     </tbody>
   </table>
+</div>
+<div className="divider"></div>
+<div>
+  <h2 className="text-2xl text-center font-bold">Total Sold Amount: <span className="text-green-600">${totalAmount}</span></h2>
 </div>
         </div>
     );
