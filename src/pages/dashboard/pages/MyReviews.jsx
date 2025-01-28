@@ -57,10 +57,10 @@ const MyReviews = () => {
             <div className="space-y-4">
                 {reviews.map(review => 
                     <div key={review._id} className=" space-y-2 border rounded-md p-6">
-                        <h2 className="text-2xl font-bold text-green-600">Property: {review.property.title}</h2>
-                        <h2 className="text-xl font-semibold">Agent: {review.property.agentName}</h2>
-                        <p>Date: {review.date}</p>
-                        <p>Description: {review.rev}</p>
+                        <h2 className="text-2xl font-bold text-green-600"><span className="font-semibold">Property:</span> {review.property.title}</h2>
+                        <h2 className="text-xl font-semibold"><span className="font-semibold">Agent:</span> {review.property.agentName}</h2>
+                        <p><span className="font-semibold">Date:</span> {review.date}</p>
+                        <p><span className="font-semibold">Description:</span> {review.rev}</p>
                         <button onClick={()=> handleReview(review._id)} className="btn btn-sm btn-secondary">Delete</button>
                     </div>
                 )}

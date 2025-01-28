@@ -85,13 +85,13 @@ const RequestedProperties = () => {
         <td>{offer.location}</td>
         <td>{offer.bayerName}</td>
         <td>{offer.bayerEmail}</td>
-        <td>${offer.amount}</td>
+        <td><span className="text-green-600 border rounded-3xl px-3 font-semibold">${offer.amount}</span></td>
         <td>
-            {offer.status ==='accepted'?'Accepted':
+            {offer.status ==='accepted'?<p className="text-green-600 border rounded-3xl px-2 font-semibold">Accepted</p>:
             <button onClick={()=>handleAccept(offer._id)} className="btn btn-xs btn-primary" disabled={offer.status==='rejected'}>Accept</button>}
         </td>
         <td>
-        {offer.status==='rejected'?'Rejected':
+        {offer.status==='rejected'?<p className="text-red-600 border rounded-3xl px-2 font-semibold">Rejected</p>:
         <button onClick={()=>handleReject(offer._id)} className="btn btn-xs btn-secondary" disabled={offer.status==='accepted'}>Reject</button>}
         </td>
       </tr>

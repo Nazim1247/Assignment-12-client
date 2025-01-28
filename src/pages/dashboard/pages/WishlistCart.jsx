@@ -42,13 +42,13 @@ const WishlistCart = ({wishlist,refetch}) => {
                 <img
                   src={image}
                   alt=""
-                  className="rounded-xl" />
+                  className="w-full h-40 rounded-xl" />
               </figure>
               <div className="p-4 space-y-2">
                 <h2 className="card-title text-green-600 text-2xl">{title}</h2>
                 <div className="flex items-center justify-between">
                 <img className="w-12 h-12 rounded-full" src={agentImage} alt="" />
-                <h3 className="text-md font-semibold flex items-center gap-1"><FaUser />{agentName}</h3>
+                <h3 className="text-md font-semibold flex items-center gap-1"><FaUser /><span>Agent:</span> {agentName}</h3>
                 </div>
                 <div className="flex items-center justify-between">
                 <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{location}</p>

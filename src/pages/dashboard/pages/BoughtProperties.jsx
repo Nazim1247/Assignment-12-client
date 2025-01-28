@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet";
 import { Zoom } from "react-awesome-reveal";
+import { FaUser } from "react-icons/fa";
 
 const BoughtProperties = () => {
     const {user}=useContext(AuthContext);
@@ -36,20 +37,20 @@ const BoughtProperties = () => {
                 <img
                   src={offer.image}
                   alt=""
-                  className="rounded-xl" />
+                  className=" w-full h-40 rounded-xl" />
               </figure>
               <div className="p-4 space-y-2">
                 <h2 className="card-title text-green-600 text-xl">{offer.title}</h2>
-                <h3 className="text-md font-semibold">Agent:  {offer.agentName}</h3>
+                <h3 className="flex items-center gap-1 text-md font-semibold"><FaUser />Agent:  {offer.agentName}</h3>
+                <p className="flex items-center gap-1"><IoLocationSharp className="text-green-600"/>{offer.location}</p>
                 <div className="flex items-center justify-between">
-                <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{offer.location}</p>
-                <p className="text-green-600 border rounded-3xl px-1">${offer.amount}</p>
+                <p className="font-semibold">Status:{offer.status==='pending'?<span className="text-orange-600 border rounded-3xl px-2 ml-1">{offer.status}</span>:<span className="text-green-600 border rounded-3xl px-2 ml-1">{offer.status}</span>}</p>
+                <p className="text-green-600 border rounded-3xl px-3">${offer.amount}</p>
                 </div>
-                <p>Status: {offer.status}</p>
                 {offer.status==='accepted'?
-                <Link to={`/dashboard/payment/${offer._id}`}><button className="btn btn-sm btn-primary mt-2">Pay</button></Link>
+                <Link to={`/dashboard/payment/${offer._id}`}><button className="btn btn-sm btn-primary mt-2 w-full">Pay</button></Link>
                 :
-                <button disabled className="btn btn-sm btn-primary mt-2">Pay</button>}
+                <button disabled className="btn btn-sm btn-primary w-full mt-2">Pay</button>}
               </div>
             </div>
                 )

@@ -49,7 +49,7 @@ const SoldProperties = () => {
         <td>{payment.location}</td>
         <td>{payment.name}</td>
         <td>{payment.email}</td>
-        <td>${payment.price}</td>
+        <td><span className="text-green-600 border rounded-3xl px-3 font-semibold">${payment.price}</span></td>
       </tr>)}
       
 
@@ -58,7 +58,7 @@ const SoldProperties = () => {
 </div>
 <div className="divider"></div>
 <div>
-  <h2 className="text-2xl text-center font-bold">Total Sold Amount: <span className="text-green-600">${totalAmount}</span></h2>
+  <h2 className="text-2xl text-center font-bold">Total Sold Amount: <span className="text-green-600 border rounded-3xl px-4">${totalAmount}</span></h2>
 </div>
         </div>
         </Zoom>
