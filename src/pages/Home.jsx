@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import useAxiosPublic from "../hooks/useAxiosPublic";
-import PropertyCard from "./PropertyCard";
+
 import ReviewCart from "./ReviewCart";
 import FeaturedSection from "../components/FeaturedSection";
 import OfferSection from "../components/OfferSection";
@@ -9,16 +9,16 @@ import AdvertisementSection from "./dashboard/advertiseProperties/AdvertisementS
 
 
 const Home = () => {
-    const [properties, setProperties] = useState([]);
+    // const [properties, setProperties] = useState([]);
     const [reviews, setReviews] = useState([]);
     const axiosPublic = useAxiosPublic();
 
     useEffect(() => {
-        const fetchProperties = async () => {
-            const { data } = await axiosPublic.get('/property')
-            setProperties(data)
-        }
-        fetchProperties()
+        // const fetchProperties = async () => {
+        //     const { data } = await axiosPublic.get('/property')
+        //     setProperties(data)
+        // }
+        // fetchProperties()
 
         const fetchReviews = async () => {
             const { data } = await axiosPublic.get('/reviews')

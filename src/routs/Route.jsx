@@ -84,7 +84,7 @@ const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/offer/${params.id}`)
+                loader: ({params})=> fetch(`https://assignment-12-server-phi-eight.vercel.app/offer/${params.id}`)
             },
             // agent dashboard
             {
@@ -102,7 +102,7 @@ const router = createBrowserRouter([
             {
                 path: 'updateProperty/:id',
                 element: <AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/properties/${params.id}`)
+                loader: ({params})=> fetch(`https://assignment-12-server-phi-eight.vercel.app/properties/${params.id}`)
             },
             {
                 path: 'soldProperties',

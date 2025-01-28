@@ -14,6 +14,7 @@ const Dashboard = () => {
             <div className="w-64 min-h-screen bg-gray-200 rounded-lg">
                 <ul className="menu">
 
+
                 {
                     isAdmin.admin ?  <>
                     <li><NavLink to='/dashboard/adminProfile'>Admin Profile</NavLink></li>
