@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 const ManegeProperties = () => {
@@ -52,6 +53,9 @@ const ManegeProperties = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Dashboard | Manege Properties</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Properties: ({properties.length})</h2>
             </div>

@@ -2,6 +2,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 
@@ -37,6 +38,9 @@ const UpdateProperty = () => {
     }
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Dashboard | Update Properties</title>
+            </Helmet>
             <div className="hero">
   <div className="hero-content flex-col w-full">
     <div className="bg-primary p-2 rounded-t-lg w-full">

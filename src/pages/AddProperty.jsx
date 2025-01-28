@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -55,6 +56,9 @@ const AddProperty = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Dashboard | Add Properties</title>
+            </Helmet>
             <div className="hero">
   <div className="hero-content flex-col w-full">
       <div className="bg-primary p-2 rounded-t-lg w-full">

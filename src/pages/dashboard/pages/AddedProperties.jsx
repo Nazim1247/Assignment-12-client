@@ -6,6 +6,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaUser } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 // import useAgent from "../../../hooks/useAgent";
 
 
@@ -70,6 +71,9 @@ const AddedProperties = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Dashboard | My Added Properties</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Added Properties: ({properties.length})</h2>
             </div>

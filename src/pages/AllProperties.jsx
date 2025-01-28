@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import PropertyCard from "./PropertyCard";
 import { useEffect, useState } from "react";
@@ -27,6 +28,9 @@ const AllProperties = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Dream House | All Properties</title>
+            </Helmet>
             <div className="flex items-center justify-between bg-primary mb-4 p-2 rounded-t-lg">
                 <h2 className="text-2xl font-bold text-white">All Properties: {properties.length}</h2>
                 <button onClick={handleSort} className="btn">Sort By Price</button>

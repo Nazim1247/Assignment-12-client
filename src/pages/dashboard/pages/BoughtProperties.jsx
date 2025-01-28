@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const BoughtProperties = () => {
     const {user}=useContext(AuthContext);
@@ -19,6 +20,9 @@ const BoughtProperties = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Dream House | Dashboard | My Bought Properties</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-md">
                 <h2 className="text-2xl font-bold text-white">All Bought Properties: ({offers.length})</h2>
             </div>

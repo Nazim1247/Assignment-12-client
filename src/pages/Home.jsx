@@ -6,6 +6,7 @@ import ReviewCart from "./ReviewCart";
 import FeaturedSection from "../components/FeaturedSection";
 import OfferSection from "../components/OfferSection";
 import AdvertisementSection from "./dashboard/advertiseProperties/AdvertisementSection";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     const [reviews, setReviews] = useState([]);
@@ -21,6 +22,9 @@ const Home = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Dream House | Home</title>
+            </Helmet>
             <div>
                 <Banner></Banner>
             </div>

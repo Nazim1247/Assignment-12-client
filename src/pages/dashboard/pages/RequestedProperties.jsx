@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAgent from "../../../hooks/useAgent";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const RequestedProperties = () => {
@@ -51,6 +52,9 @@ const RequestedProperties = () => {
     }
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Dashboard | My Requested Properties</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Requested Properties: ({offers.length})</h2>
             </div>

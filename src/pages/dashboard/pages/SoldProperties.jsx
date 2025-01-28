@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAgent from "../../../hooks/useAgent";
+import { Helmet } from "react-helmet";
 
 
 const SoldProperties = () => {
@@ -20,6 +21,9 @@ const SoldProperties = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Dashboard | My Sold Properties</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Sold Properties: ({payments.length})</h2>
             </div>

@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import WishlistCart from "./WishlistCart";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Wishlist = () => {
     const {user} = useContext(AuthContext);
@@ -18,6 +19,9 @@ const Wishlist = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dream House | Dashboard | My Wishlist</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Wished: ({wishlists.length})</h2>
             </div>

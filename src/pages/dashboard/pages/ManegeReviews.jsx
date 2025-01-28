@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { FaUserAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 
 const ManegeReviews = () => {
@@ -42,6 +43,9 @@ const ManegeReviews = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Dream House | Dashboard | Manege Reviews</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Reviews: ({reviews.length})</h2>
             </div>

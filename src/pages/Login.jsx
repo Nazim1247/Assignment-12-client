@@ -5,6 +5,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../social/SocialLogin';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -39,6 +40,9 @@ const Login = () => {
  
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Login</title>
+            </Helmet>
             <div className="hero">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">

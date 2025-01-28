@@ -10,6 +10,7 @@ import ReviewSection from "./ReviewSection";
 import useAdmin from "../hooks/useAdmin";
 import { FaUser } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
+import { Helmet } from "react-helmet";
 
 const PropertyDetails = () => {
     const navigate = useNavigate();
@@ -62,6 +63,9 @@ const PropertyDetails = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Dream House | Property Details</title>
+            </Helmet>
             <div className="hero">
   <div className="hero-content flex-col lg:flex-row lg:gap-16">
     <img

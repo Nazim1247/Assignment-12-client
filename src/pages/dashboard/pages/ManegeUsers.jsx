@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ManegeUsers = () => {
     const axiosSecure = useAxiosSecure();
@@ -79,6 +80,9 @@ const ManegeUsers = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Dashboard | Manege Users</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Users: ({users.length})</h2>
             </div>

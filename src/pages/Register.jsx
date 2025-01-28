@@ -7,6 +7,7 @@ import SocialLogin from "../social/SocialLogin";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const axiosPublic = useAxiosPublic();
@@ -78,6 +79,9 @@ const Register = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>Dream House | Register</title>
+            </Helmet>
             <div className="hero">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">

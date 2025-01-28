@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 const MyReviews = () => {
     const {user} = useContext(AuthContext);
@@ -45,6 +46,9 @@ const MyReviews = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dream House | Dashboard | My Reviews</title>
+            </Helmet>
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">My All Reviews: ({reviews.length})</h2>
             </div>
