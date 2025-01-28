@@ -4,7 +4,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet";
-import { Zoom } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 import { FaUser } from "react-icons/fa";
 
 const BoughtProperties = () => {
@@ -21,7 +21,7 @@ const BoughtProperties = () => {
     },[])
 
     return (
-        <Zoom>
+        <Slide duration={2000} delay={100} direction='right'>
             <div className="">
             <Helmet>
                 <title>Dream House | Dashboard | My Bought Properties</title>
@@ -57,7 +57,7 @@ const BoughtProperties = () => {
                 }
             </div>
         </div>
-        </Zoom>
+        </Slide>
     );
 };
 

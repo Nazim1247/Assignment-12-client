@@ -52,7 +52,7 @@ const AllProperties = () => {
             </div>
             <div>
             {
-                properties && properties.length > 0 ? <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+                properties && properties.length > 0 ? <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {
                         properties.map(property => <PropertyCard key={property._id} property={property}></PropertyCard>)
                     }

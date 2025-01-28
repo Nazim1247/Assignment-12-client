@@ -4,7 +4,7 @@ import WishlistCart from "./WishlistCart";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet";
-import { Zoom } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 
 const Wishlist = () => {
     const {user} = useContext(AuthContext);
@@ -19,7 +19,7 @@ const Wishlist = () => {
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
     return (
-    <Zoom>
+    <Slide duration={2000} delay={100} direction='right'>
         <div>
             <Helmet>
                 <title>Dream House | Dashboard | My Wishlist</title>
@@ -31,7 +31,7 @@ const Wishlist = () => {
                 {wishlists.map(wishlist => <WishlistCart key={wishlist._id} wishlist={wishlist} refetch={refetch}></WishlistCart>)}
             </div>
         </div>
-    </Zoom>
+    </Slide>
     );
 };
 
