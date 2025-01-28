@@ -15,7 +15,7 @@ const ManegeUsers = () => {
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
     const handleMark = (user)=>{
-      console.log(user);
+      // console.log(user);
     }
 
     const handleMakeAgent = async(user)=>{

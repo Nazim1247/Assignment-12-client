@@ -36,7 +36,7 @@ const ManegeProperties = () => {
     const handleReject = async (id)=>{
       await axiosSecure.patch(`/properties/reject/${id}`)
       .then(res =>{
-          console.log(res.data)
+          // console.log(res.data)
           if(res.data.modifiedCount > 0){
               refetch();
               Swal.fire({

@@ -42,10 +42,10 @@ const CheckoutForm = ({offer}) => {
             card
         })
         if(error){
-            console.log('payment error', error)
+            // console.log('payment error', error)
             setError(error.message)
         }else{
-            console.log('payment method', paymentMethod)
+            // console.log('payment method', paymentMethod)
             setError('')
         }
         // confirm payment
@@ -61,7 +61,7 @@ const CheckoutForm = ({offer}) => {
         if(confirmError){
             console.log('confirm error')
         }else{
-            console.log('payment intent', paymentIntent)
+            // console.log('payment intent', paymentIntent)
             if(paymentIntent.status === 'succeeded'){
                 setTransactionId(paymentIntent.id);
                 // save payment in the database 

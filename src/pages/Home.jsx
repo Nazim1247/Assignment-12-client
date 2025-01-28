@@ -7,19 +7,11 @@ import FeaturedSection from "../components/FeaturedSection";
 import OfferSection from "../components/OfferSection";
 import AdvertisementSection from "./dashboard/advertiseProperties/AdvertisementSection";
 
-
 const Home = () => {
-    // const [properties, setProperties] = useState([]);
     const [reviews, setReviews] = useState([]);
     const axiosPublic = useAxiosPublic();
 
-    useEffect(() => {
-        // const fetchProperties = async () => {
-        //     const { data } = await axiosPublic.get('/property')
-        //     setProperties(data)
-        // }
-        // fetchProperties()
-
+    useEffect(() => { 
         const fetchReviews = async () => {
             const { data } = await axiosPublic.get('/reviews')
             setReviews(data)
@@ -35,14 +27,7 @@ const Home = () => {
             <div>
                 <AdvertisementSection></AdvertisementSection>
             </div>
-            {/* <div>
-                <h2 className="text-2xl font-bold text-center my-8 text-green-600">Top Deals for You</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {
-                        properties.map(property => <PropertyCard key={property._id} property={property}></PropertyCard>)
-                    }
-                </div>
-            </div> */}
+            
             <div>
                 <h2 className="text-2xl font-bold text-center my-8 text-green-600">Latest Users Reviews</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
