@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
 import useAgent from "../../hooks/useAgent";
 import { Helmet } from "react-helmet";
+import { Slide } from "react-awesome-reveal";
 
 
 const Dashboard = () => {
@@ -9,7 +10,8 @@ const Dashboard = () => {
     const [isAgent] = useAgent();
     // console.log(isAdmin)
     return (
-        <div>
+        <Slide duration={2000} delay={100}>
+            <div>
             <Helmet>
                 <title>Dream House | Dashboard</title>
             </Helmet>
@@ -56,6 +58,7 @@ const Dashboard = () => {
             </div>
         </div>
         </div>
+        </Slide>
     );
 };
 

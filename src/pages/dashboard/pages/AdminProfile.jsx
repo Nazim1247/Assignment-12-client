@@ -1,13 +1,15 @@
 
 import { Helmet } from "react-helmet";
 import useAdmin from "../../../hooks/useAdmin";
+import { Zoom } from "react-awesome-reveal";
 
 const AdminProfile = () => {
     
     const [isAdmin] = useAdmin();
     // console.log(isAdmin)
     return (
-        <div className="text-center py-6 space-y-2 border rounded-lg">
+        <Zoom>
+            <div className="text-center py-6 space-y-2 border rounded-lg">
             <Helmet>
                 <title>Dream House | Dashboard | Admin Profile</title>
             </Helmet>
@@ -16,6 +18,7 @@ const AdminProfile = () => {
             <p>Email: {isAdmin?.user?.email}</p>
             <p>Role: {isAdmin?.user?.role}</p>
         </div>
+        </Zoom>
     );
 };
 

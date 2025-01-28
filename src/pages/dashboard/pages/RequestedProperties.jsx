@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAgent from "../../../hooks/useAgent";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 
 const RequestedProperties = () => {
@@ -51,7 +52,8 @@ const RequestedProperties = () => {
       })
     }
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Dashboard | My Requested Properties</title>
             </Helmet>
@@ -101,6 +103,7 @@ const RequestedProperties = () => {
 </div>
             </div>
         </div>
+        </Zoom>
     );
 };
 

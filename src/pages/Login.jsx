@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../social/SocialLogin';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import { Zoom } from 'react-awesome-reveal';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -39,7 +40,8 @@ const Login = () => {
     }
  
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Login</title>
             </Helmet>
@@ -78,6 +80,7 @@ const Login = () => {
   </div>
 </div>
         </div>
+        </Zoom>
     );
 };
 

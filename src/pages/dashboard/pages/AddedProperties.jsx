@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaUser } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 // import useAgent from "../../../hooks/useAgent";
 
 
@@ -70,7 +71,8 @@ const AddedProperties = () => {
     }
 
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Dashboard | My Added Properties</title>
             </Helmet>
@@ -108,6 +110,7 @@ const AddedProperties = () => {
             }
             </div>
         </div>
+        </Zoom>
     );
 };
 

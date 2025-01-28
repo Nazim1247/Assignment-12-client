@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAgent from "../../../hooks/useAgent";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 
 const SoldProperties = () => {
@@ -20,7 +21,8 @@ const SoldProperties = () => {
     // console.log(totalAmount)
 
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Dashboard | My Sold Properties</title>
             </Helmet>
@@ -59,6 +61,7 @@ const SoldProperties = () => {
   <h2 className="text-2xl text-center font-bold">Total Sold Amount: <span className="text-green-600">${totalAmount}</span></h2>
 </div>
         </div>
+        </Zoom>
     );
 };
 

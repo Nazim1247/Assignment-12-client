@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import PropertyCard from "./PropertyCard";
 import { useEffect, useState } from "react";
+import { Zoom } from "react-awesome-reveal";
 
 const AllProperties = () => {
     const [sort, setSort]=useState('');
@@ -27,7 +28,8 @@ const AllProperties = () => {
      }
 
     return (
-        <div className="w-11/12 mx-auto">
+        <Zoom>
+            <div className="w-11/12 mx-auto">
             <Helmet>
                 <title>Dream House | All Properties</title>
             </Helmet>
@@ -60,6 +62,7 @@ const AllProperties = () => {
             }
             </div>
         </div>
+        </Zoom>
     );
 };
 

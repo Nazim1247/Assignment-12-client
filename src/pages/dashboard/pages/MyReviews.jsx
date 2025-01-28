@@ -4,6 +4,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 const MyReviews = () => {
     const {user} = useContext(AuthContext);
@@ -45,7 +46,8 @@ const MyReviews = () => {
     }
 
     return (
-        <div>
+        <Zoom>
+            <div>
             <Helmet>
                 <title>Dream House | Dashboard | My Reviews</title>
             </Helmet>
@@ -64,6 +66,7 @@ const MyReviews = () => {
                 )}
             </div>
         </div>
+        </Zoom>
     );
 };
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 
 const AdvertiseProperties = () => {
@@ -32,7 +33,8 @@ const AdvertiseProperties = () => {
         }
 
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Dashboard | Advertise Properties</title>
             </Helmet>
@@ -74,6 +76,7 @@ const AdvertiseProperties = () => {
 </div>
             </div>
         </div>
+        </Zoom>
     );
 };
 

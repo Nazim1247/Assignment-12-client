@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 
 const ManegeProperties = () => {
@@ -52,7 +53,8 @@ const ManegeProperties = () => {
     }
 
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Dashboard | Manege Properties</title>
             </Helmet>
@@ -102,6 +104,7 @@ const ManegeProperties = () => {
 </div>
             </div>
         </div>
+        </Zoom>
     );
 };
 

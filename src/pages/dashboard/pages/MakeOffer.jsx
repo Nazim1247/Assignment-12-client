@@ -5,6 +5,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 
 const MakeOffer = () => {
@@ -70,7 +72,11 @@ const MakeOffer = () => {
     }
 
     return (
-        <div>
+        <Zoom>
+          <div>
+          <Helmet>
+            <title>Dream House | Make an offer</title>
+          </Helmet>
     <div className="w-full">
       <h1 className="text-2xl font-bold text-center">Make an offer</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -140,6 +146,7 @@ const MakeOffer = () => {
       </form>
     </div>
   </div>
+        </Zoom>
     );
 };
 

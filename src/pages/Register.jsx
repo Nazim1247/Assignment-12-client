@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 const Register = () => {
   const axiosPublic = useAxiosPublic();
@@ -78,7 +79,8 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Register</title>
             </Helmet>
@@ -128,6 +130,7 @@ const Register = () => {
   </div>
 </div>
         </div>
+        </Zoom>
     );
 };
 

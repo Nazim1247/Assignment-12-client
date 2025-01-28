@@ -7,6 +7,7 @@ import FeaturedSection from "../components/FeaturedSection";
 import OfferSection from "../components/OfferSection";
 import AdvertisementSection from "./dashboard/advertiseProperties/AdvertisementSection";
 import { Helmet } from "react-helmet";
+import { Slide, Zoom } from "react-awesome-reveal";
 
 const Home = () => {
     const [reviews, setReviews] = useState([]);
@@ -25,27 +26,37 @@ const Home = () => {
             <Helmet>
                 <title>Dream House | Home</title>
             </Helmet>
+            <Zoom>
             <div>
                 <Banner></Banner>
             </div>
+            </Zoom>
+            <Slide duration={2000} delay={100} direction='right'>
             <div>
                 <AdvertisementSection></AdvertisementSection>
             </div>
+            </Slide>
             
+            <Slide duration={2000} delay={100}>
             <div>
-                <h2 className="text-2xl font-bold text-center my-8 text-green-600">Latest Users Reviews</h2>
+                <h2 className="text-2xl font-bold text-center my-8 text-green-600">Latest User's Reviews</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {
                         reviews.map(review => <ReviewCart key={review._id} review={review}></ReviewCart>)
                     }
                 </div>
             </div>
+            </Slide>
+            <Slide duration={2000} delay={100} direction='right'>
             <div>
                 <FeaturedSection></FeaturedSection>
             </div>
+            </Slide>
+            <Slide duration={2000} delay={100}>
             <div>
                 <OfferSection></OfferSection>
             </div>
+            </Slide>
         </div>
     );
 };

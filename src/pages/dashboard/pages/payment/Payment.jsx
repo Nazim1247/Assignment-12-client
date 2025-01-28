@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 
@@ -11,7 +12,8 @@ const Payment = () => {
     // console.log(offer)
     
     return (
-        <div>
+        <Zoom>
+            <div>
             <Helmet>
                 <title>Dream House | Dashboard | Payment</title>
             </Helmet>
@@ -19,6 +21,7 @@ const Payment = () => {
                 <CheckoutForm offer={offer}></CheckoutForm>
             </Elements>
         </div>
+        </Zoom>
     );
 };
 

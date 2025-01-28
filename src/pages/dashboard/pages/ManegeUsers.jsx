@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 const ManegeUsers = () => {
     const axiosSecure = useAxiosSecure();
@@ -79,7 +80,8 @@ const ManegeUsers = () => {
     }
 
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Dashboard | Manege Users</title>
             </Helmet>
@@ -125,6 +127,7 @@ const ManegeUsers = () => {
                   </div>
             </div>
         </div>
+        </Zoom>
     );
 };
 

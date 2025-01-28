@@ -1,13 +1,15 @@
 
 import { Helmet } from "react-helmet";
 import useAgent from "../../../hooks/useAgent";
+import { Zoom } from "react-awesome-reveal";
 
 const AgentProfile = () => {
 
     const [isAgent] = useAgent();
     // console.log(isAgent)
     return (
-        <div className="text-center py-6 space-y-2 border rounded-lg">
+        <Zoom>
+            <div className="text-center py-6 space-y-2 border rounded-lg">
             <Helmet>
                 <title>Dream House | Dashboard | Agent Profile</title>
             </Helmet>
@@ -16,6 +18,7 @@ const AgentProfile = () => {
             <p>Email: {isAgent?.user?.email}</p>
             <p>Role: {isAgent?.user?.role}</p>
         </div>
+        </Zoom>
     );
 };
 

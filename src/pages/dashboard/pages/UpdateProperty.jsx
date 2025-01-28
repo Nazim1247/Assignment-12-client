@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 
 
@@ -37,7 +38,8 @@ const UpdateProperty = () => {
     
     }
     return (
-        <div>
+        <Zoom>
+          <div>
           <Helmet>
                 <title>Dream House | Dashboard | Update Properties</title>
             </Helmet>
@@ -107,6 +109,7 @@ const UpdateProperty = () => {
   </div>
 </div>
         </div>
+        </Zoom>
     );
 };
 

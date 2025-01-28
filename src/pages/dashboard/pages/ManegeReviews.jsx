@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { FaUserAlt } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 
 const ManegeReviews = () => {
@@ -42,7 +43,8 @@ const ManegeReviews = () => {
           });
     }
     return (
-        <div>
+        <Zoom>
+            <div>
             <Helmet>
                 <title>Dream House | Dashboard | Manege Reviews</title>
             </Helmet>
@@ -63,6 +65,7 @@ const ManegeReviews = () => {
                 }
             </div>
         </div>
+        </Zoom>
     );
 };
 

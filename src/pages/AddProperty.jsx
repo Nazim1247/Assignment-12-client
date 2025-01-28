@@ -6,6 +6,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -55,7 +56,8 @@ const AddProperty = () => {
   }
 
     return (
-        <div>
+        <Zoom>
+      <div>
           <Helmet>
                 <title>Dream House | Dashboard | Add Properties</title>
             </Helmet>
@@ -124,6 +126,7 @@ const AddProperty = () => {
   </div>
 </div>
         </div>
+        </Zoom>
     );
 };
 

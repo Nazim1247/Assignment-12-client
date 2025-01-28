@@ -11,6 +11,7 @@ import useAdmin from "../hooks/useAdmin";
 import { FaUser } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 import { Helmet } from "react-helmet";
+import { Zoom } from "react-awesome-reveal";
 
 const PropertyDetails = () => {
     const navigate = useNavigate();
@@ -62,7 +63,8 @@ const PropertyDetails = () => {
     }
 
     return (
-        <div className="w-11/12 mx-auto">
+        <Zoom>
+            <div className="w-11/12 mx-auto">
             <Helmet>
                 <title>Dream House | Property Details</title>
             </Helmet>
@@ -106,6 +108,7 @@ const PropertyDetails = () => {
 
 <ReviewModal closeModal={closeModal} isOpen={isOpen} property={property}></ReviewModal>
         </div>
+        </Zoom>
     );
 };
 
