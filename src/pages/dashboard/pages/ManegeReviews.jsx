@@ -51,7 +51,7 @@ const ManegeReviews = () => {
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Reviews: ({reviews.length})</h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid lg:grid-cols-3 gap-4">
                 {
                 reviews.map(review => 
             <div key={review._id} className="text-center space-y-2 border rounded-md p-4">
@@ -59,7 +59,7 @@ const ManegeReviews = () => {
             <h2 className="font-semibold text-2xl flex items-center justify-center gap-1"><FaUserAlt />{review.name}</h2>
             <p className="font-semibold text-lg text-green-600">{review.email}</p>
             <p>Review: {review.rev}</p>
-            <button onClick={()=> handleDelete(review._id)} className="btn btn-sm btn-secondary">Delete</button>
+            <button onClick={()=> handleDelete(review._id)} className="btn btn-sm btn-secondary w-full">Delete</button>
             </div>
                     )
                 }

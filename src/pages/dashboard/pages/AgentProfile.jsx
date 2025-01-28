@@ -14,9 +14,9 @@ const AgentProfile = () => {
                 <title>Dream House | Dashboard | Agent Profile</title>
             </Helmet>
             <img className="w-32 h-32 rounded-full mx-auto" src={isAgent?.user?.photo} alt="" />
-            <h2 className="text-xl font-bold text-green-600">Name: {isAgent?.user?.name}</h2>
-            <p>Email: {isAgent?.user?.email}</p>
-            <p>Role: {isAgent?.user?.role}</p>
+            <h2 className="text-xl text-green-600"><span className="font-semibold">Name:</span> {isAgent?.user?.name}</h2>
+            <p><span className="font-semibold">Email:</span> {isAgent?.user?.email}</p>
+            <p><span className="font-semibold">Role:</span> {isAgent?.user?.role}</p>
         </div>
         </Zoom>
     );

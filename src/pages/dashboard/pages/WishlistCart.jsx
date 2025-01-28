@@ -51,8 +51,8 @@ const WishlistCart = ({wishlist,refetch}) => {
                 <h3 className="text-md font-semibold flex items-center gap-1"><FaUser /><span>Agent:</span> {agentName}</h3>
                 </div>
                 <div className="flex items-center justify-between">
-                <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{location}</p>
-                <p className="text-green-600 border rounded-3xl px-1">${price}</p>
+                <p className="flex items-center gap-2"><IoLocationSharp className="text-green-600"/>{location}</p>
+                <p className="text-green-600 border rounded-3xl px-3">${price}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <Link to={`/dashboard/makeOffer/${_id}`}><button className="btn btn-sm btn-primary w-full">Make an offer</button></Link>

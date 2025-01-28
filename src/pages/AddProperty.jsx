@@ -36,7 +36,8 @@ const AddProperty = () => {
         location: data.location,
         price: parseFloat(data.price),
         description: data.description,
-        image: res.data.data.display_url
+        image: res.data.data.display_url,
+        status: 'pending'
       }
       //save property to database
       await axiosSecure.post('/properties',propertyData)

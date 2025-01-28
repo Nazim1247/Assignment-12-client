@@ -109,16 +109,16 @@ const ManegeUsers = () => {
                           <td>{user.name}</td>
                           <td>{user.email}</td>
                           <td>
-                            { user?.role === 'admin'? 'Admin': <button onClick={()=>handleMakeAdmin(user)} className="btn btn-xs btn-primary" disabled={user?.role==='agent'}>Make Admin</button>}
+                            { user?.role === 'admin'? <p className="text-green-600 border rounded-3xl px-2">Admin</p>: <button onClick={()=>handleMakeAdmin(user)} className="btn btn-xs btn-primary" disabled={user?.role==='agent'}>Make Admin</button>}
                             </td>
                           <td>
-                          { user?.role === 'agent'? 'Agent': <button onClick={()=>handleMakeAgent(user)} className="btn btn-xs btn-primary" disabled={user?.role==='admin'}>Make Agent</button>}
+                          { user?.role === 'agent'? <p className="text-green-600 border rounded-3xl px-2">Agent</p>: <button onClick={()=>handleMakeAgent(user)} className="btn btn-xs btn-primary" disabled={user?.role==='admin'}>Make Agent</button>}
                           </td>
                           <td>
                           <button onClick={()=>handleMark(user)} className="btn btn-xs btn-primary">Mark as fraud</button>
                           </td>
                           <td>
-                            <button onClick={()=> handleDelete(user)} className="btn btn-xs btn-secondary" disabled={user?.role==='admin' || user?.role ==='agent'}>Delete</button>
+                            <button onClick={()=> handleDelete(user)} className="btn btn-xs btn-secondary">Delete</button>
                           </td>
                         </tr>)}
                         

@@ -79,7 +79,7 @@ const AddedProperties = () => {
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Added Properties: ({properties.length})</h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid lg:grid-cols-3 gap-4">
             {
                 properties.map(property => 
                     <div key={property._id} className="card shadow h-full flex flex-col justify-between">
@@ -97,7 +97,7 @@ const AddedProperties = () => {
                       </div>
                       <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{property.location}</p>
                       <div className="flex items-center justify-between">
-                        <p className="font-semibold text-green-600">{property.status}</p>
+                        <p className="font-semibold">status: {property.status==='pending'?<span className="text-pink-600 border rounded-3xl px-3">{property.status}</span>:<span className="text-green-600 border rounded-3xl px-3">{property.status}</span>}</p>
                       <p className="text-green-600 border rounded-3xl px-3">${property.price}</p>
                       </div>
                       <div className="flex gap-2 items-center justify-between">

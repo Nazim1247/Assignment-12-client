@@ -86,13 +86,13 @@ const ManegeProperties = () => {
         <td>{property.location}</td>
         <td>{property.agentName}</td>
         <td>{property.agentEmail}</td>
-        <td>{property.price}</td>
+        <td><p className="text-green-600 border rounded-3xl px-2">${property.price}</p></td>
         <td>
-            {property.status === 'verified'? 'verified':
+            {property.status === 'verified'? <p className="text-green-600 border rounded-3xl px-2">Verified</p>:
             <button onClick={()=>handleVerify(property._id)} className="btn btn-xs btn-primary" disabled={property.status === 'rejected'}>Verify</button>}
         </td>
         <td>
-        {property.status === 'rejected'?'rejected':
+        {property.status === 'rejected'?<p className="text-pink-600 border rounded-3xl px-2">Rejected</p>:
         <button onClick={()=>handleReject(property._id)} className="btn btn-xs btn-secondary" disabled={property.status === 'verified'}>Reject</button>}
         </td>
       </tr>

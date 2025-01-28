@@ -63,7 +63,7 @@ const AdvertiseProperties = () => {
         <img src={property.image} className="w-12 h-12 rounded-full" alt="" />
         <td>{property.title}</td>
         <td>{property.agentName}</td>
-        <td>${property.price}</td>
+        <td><p className="text-green-600 border rounded-3xl px-2">${property.price}</p></td>
         <td>
             <button onClick={()=>handleAdvertise(property._id)} className="btn btn-xs btn-primary">Advertise</button>
         </td>

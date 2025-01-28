@@ -14,9 +14,9 @@ const AdminProfile = () => {
                 <title>Dream House | Dashboard | Admin Profile</title>
             </Helmet>
             <img className="w-32 h-32 rounded-full mx-auto" src={isAdmin?.user?.photo} alt="" />
-            <h2 className="text-xl font-bold text-green-600">Name: {isAdmin?.user?.name}</h2>
-            <p>Email: {isAdmin?.user?.email}</p>
-            <p>Role: {isAdmin?.user?.role}</p>
+            <h2 className="text-xl text-green-600"><span className="font-semibold">Name:</span> {isAdmin?.user?.name}</h2>
+            <p><span className="font-semibold">Email:</span> {isAdmin?.user?.email}</p>
+            <p><span className="font-semibold">Role:</span> {isAdmin?.user?.role}</p>
         </div>
         </Zoom>
     );
