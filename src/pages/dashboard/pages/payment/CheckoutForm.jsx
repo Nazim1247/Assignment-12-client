@@ -74,7 +74,8 @@ const CheckoutForm = ({offer}) => {
                     date: new Date(),
                     offerId: offer._id,
                     title: offer.title,
-                    location: offer.location
+                    location: offer.location,
+                    image: offer.image
                     
                 }
                 const res = await axiosSecure.post('/payments',payment)

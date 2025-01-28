@@ -27,6 +27,7 @@ import RequestedProperties from "../pages/dashboard/pages/RequestedProperties";
 import AgentRoute from "./AgentRoute";
 import SoldProperties from "../pages/dashboard/pages/SoldProperties";
 import AdvertiseProperties from "../pages/dashboard/advertiseProperties/AdvertiseProperties";
+import PaymentHistory from "../pages/dashboard/pages/payment/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -82,9 +83,13 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
+                path: 'paymentHistory',
+                element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
+            },
+            {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({params})=> fetch(`https://assignment-12-server-phi-eight.vercel.app/offer/${params.id}`)
+                loader: ({params})=> fetch(`https://assignment-12-2f479.web.app/offer/${params.id}`)
             },
             // agent dashboard
             {
@@ -102,7 +107,7 @@ const router = createBrowserRouter([
             {
                 path: 'updateProperty/:id',
                 element: <AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>,
-                loader: ({params})=> fetch(`https://assignment-12-server-phi-eight.vercel.app/properties/${params.id}`)
+                loader: ({params})=> fetch(`https://assignment-12-2f479.web.app/${params.id}`)
             },
             {
                 path: 'soldProperties',

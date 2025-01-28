@@ -44,7 +44,7 @@ const BoughtProperties = () => {
                 <h3 className="flex items-center gap-1 text-md font-semibold"><FaUser />Agent:  {offer.agentName}</h3>
                 <p className="flex items-center gap-1"><IoLocationSharp className="text-green-600"/>{offer.location}</p>
                 <div className="flex items-center justify-between">
-                <p className="font-semibold">Status:{offer.status==='pending'?<span className="text-orange-600 border rounded-3xl px-2 ml-1">{offer.status}</span>:<span className="text-green-600 border rounded-3xl px-2 ml-1">{offer.status}</span>}</p>
+                <p className="font-semibold">Status:{offer.status!=='accepted'?<span className="text-pink-600 border rounded-3xl px-2 ml-1">{offer.status}</span>:<span className="text-green-600 border rounded-3xl px-2 ml-1">{offer.status}</span>}</p>
                 <p className="text-green-600 border rounded-3xl px-3">${offer.amount}</p>
                 </div>
                 {offer.status==='accepted'?
