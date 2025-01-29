@@ -33,7 +33,7 @@ const AllProperties = () => {
             <Helmet>
                 <title>Dream House | All Properties</title>
             </Helmet>
-            <div className="flex items-center justify-between bg-primary mb-4 p-2 rounded-t-lg">
+            <div className="md:flex items-center justify-between bg-primary mb-4 p-2 rounded-t-lg text-center space-y-2">
                 <h2 className="text-2xl font-bold text-white">All Properties: {properties.length}</h2>
                 <button onClick={handleSort} className="btn">Sort By Price</button>
                 <label className="input input-bordered flex items-center gap-2">
