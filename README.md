@@ -6,7 +6,7 @@ Welcome to the **Dream House** client-side repository! This is the front-end app
 
 ## Live Link:
 
-### https://assignment-12-2f479.web.app/
+### https://assignment-12-server-phi-eight.vercel.app/
 
 ## Features
 - **Homepage**: Displays a welcoming banner, featured properties, and advertisements.
