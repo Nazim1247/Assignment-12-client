@@ -35,7 +35,7 @@ const PaymentHistory = () => {
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Payments: ({payments.length})</h2>
             </div>
-            <div className="grid lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {payments.map(payment => <HistoryCard key={payment._id} payment={payment} refetch={refetch}></HistoryCard>)}
             </div>
         </div>

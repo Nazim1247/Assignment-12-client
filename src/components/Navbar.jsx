@@ -56,7 +56,7 @@ const Navbar = () => {
       </ul>
     </div>
     <img className='w-12 h-12 rounded-full mr-2' src={logo} alt="" />
-    <a className="text-2xl font-bold text-white">Dream House</a>
+    <a className="text-2xl font-bold text-white hidden md:flex">Dream House</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

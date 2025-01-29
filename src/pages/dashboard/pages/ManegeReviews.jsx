@@ -51,7 +51,7 @@ const ManegeReviews = () => {
             <div className="bg-primary mb-4 p-2 rounded-t-lg">
             <h2 className="text-2xl font-bold text-white">All Reviews: ({reviews.length})</h2>
             </div>
-            <div className="grid lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                 reviews.map(review => 
             <div key={review._id} className="text-center space-y-2 border rounded-md p-4">

@@ -18,7 +18,7 @@ const Dashboard = () => {
             <div className="flex justify-center items-center gap-8">
 
 <div className="dropdown mt-6">
-<div tabIndex={1} role="button" className=" md:hidden">
+<div tabIndex={1} role="button" className=" lg:hidden">
 <svg
 xmlns="http://www.w3.org/2000/svg"
 className="h-8 w-8"
@@ -74,7 +74,7 @@ className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52
             </div>
 
             <div className="md:flex w-11/12 mx-auto my-6 gap-4">
-            <div className="w-64 min-h-screen bg-gray-200 rounded-lg hidden md:flex">
+            <div className="w-64 min-h-screen bg-gray-200 rounded-lg hidden lg:flex">
                 <ul className="menu">
 
                 {

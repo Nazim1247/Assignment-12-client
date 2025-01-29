@@ -53,7 +53,7 @@ const HistoryCard = ({payment,refetch}) => {
                 <p>{transactionId}</p>
                 <div className='flex items-center justify-between'>
                 <button onClick={()=>handleRemove(_id)} className="btn btn-sm btn-secondary">Remove</button>
-                <p className="text-green-600 border rounded-3xl px-3">${price}</p>
+                <p className="text-green-600 border rounded-3xl px-3 font-semibold">Price: ${price}</p>
                 </div>
               </div>
             </div>
