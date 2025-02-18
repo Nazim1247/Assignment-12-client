@@ -8,6 +8,7 @@ import OfferSection from "../components/OfferSection";
 import AdvertisementSection from "./dashboard/advertiseProperties/AdvertisementSection";
 import { Helmet } from "react-helmet";
 import { Slide, Zoom } from "react-awesome-reveal";
+import AboutUs from "../components/AboutUs";
 
 const Home = () => {
     const [reviews, setReviews] = useState([]);
@@ -57,6 +58,9 @@ const Home = () => {
                 <OfferSection></OfferSection>
             </div>
             </Slide>
+            <div>
+                <AboutUs></AboutUs>
+            </div>
         </div>
     );
 };
