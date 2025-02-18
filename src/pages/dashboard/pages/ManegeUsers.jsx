@@ -16,10 +16,6 @@ const ManegeUsers = () => {
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
-    const handleMark = (user)=>{
-      // console.log(user);
-    }
-
     const handleMakeAgent = async(user)=>{
         await axiosSecure.patch(`/users/agent/${user._id}`)
         .then(res =>{
@@ -92,14 +88,13 @@ const ManegeUsers = () => {
             <div className="overflow-x-auto">
                     <table className="table w-full">
                       {/* head */}
-                      <thead>
+                      <thead className="text-gray-900 dark:text-gray-100">
                         <tr>
                           <th>#</th>
                           <th>Name</th>
                           <th>Email</th>
                           <th>Make Admin</th>
                           <th>Make Agent</th>
-                          <th>Mark as fraud</th>
                           <th>Delete</th>
                         </tr>
                       </thead>
@@ -114,9 +109,7 @@ const ManegeUsers = () => {
                           <td>
                           { user?.role === 'agent'? <p className="text-green-600 border rounded-3xl px-2">Agent</p>: <button onClick={()=>handleMakeAgent(user)} className="btn btn-xs btn-primary" disabled={user?.role==='admin'}>Make Agent</button>}
                           </td>
-                          <td>
-                          <button onClick={()=>handleMark(user)} className="btn btn-xs btn-primary">Mark as fraud</button>
-                          </td>
+              
                           <td>
                             <button onClick={()=> handleDelete(user)} className="btn btn-xs btn-secondary">Delete</button>
                           </td>

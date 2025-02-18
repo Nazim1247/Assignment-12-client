@@ -21,7 +21,7 @@ const Navbar = () => {
     <li><NavLink to='/contactUs' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Contact Us</NavLink></li>
 
     {
-      user && <li><NavLink to='/dashboard' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Dashboard</NavLink></li>
+      user && <li><NavLink to='/dashboard/welcome' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Dashboard</NavLink></li>
     }
     </div>
 

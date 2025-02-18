@@ -51,26 +51,25 @@ const Login = () => {
       <h1 className="text-2xl font-bold">Login now!</h1>
       <Lottie className='lg:w-96' animationData={lottie}></Lottie>
     </div>
-    <div className="card bg-base-100 w-full shadow">
+    <div className="card w-full shadow border">
       <form onSubmit={handleSubmit} className="card-body">
         <p className='text-center mb-2'>New to This Page? <Link className='text-red-600' to={'/register'}>Register</Link></p>
-        <button type='button' className='btn text-center'>
+        <button type='button' className='btn text-center bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100 border-none'>
             <SocialLogin></SocialLogin>
         </button>
+        <div className="divider">OR</div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Email</span>
+            <span>Email</span>
           </label>
-          <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+          <input type="email" name='email' placeholder="email" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Password</span>
+            <span>Password</span>
           </label>
-          <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
+          <input type="password" name='password' placeholder="password" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>

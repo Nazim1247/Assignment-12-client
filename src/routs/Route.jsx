@@ -31,6 +31,7 @@ import PaymentHistory from "../pages/dashboard/pages/payment/PaymentHistory";
 import FeaturedSection from "../components/FeaturedSection";
 import OfferSection from "../components/OfferSection";
 import ContactUs from "../components/ContactUs";
+import Welcome from "../welcome/Welcome";
 
 const router = createBrowserRouter([
     {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children: [
             // user dashboard
+            {
+                path: 'welcome',
+                element: <Welcome></Welcome>
+            },
             {
                 path: 'userProfile',
                 element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>

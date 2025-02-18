@@ -65,7 +65,7 @@ const ManegeProperties = () => {
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead>
+    <thead className="text-gray-900 dark:text-gray-100">
       <tr>
         <th>#</th>
         <th>Property Title</th>

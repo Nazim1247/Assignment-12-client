@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { FcGoogle } from "react-icons/fc";
 
 
 const SocialLogin = () => {
@@ -37,7 +38,7 @@ const SocialLogin = () => {
     }
     return (
         <div>
-            <button type="button" onClick={handleGoogleLogin}>Continue With Google</button>
+            <button className="flex items-center gap-2" type="button" onClick={handleGoogleLogin}><FcGoogle className="text-lg"/> Continue With Google</button>
         </div>
     );
 };
