@@ -30,6 +30,7 @@ import AdvertiseProperties from "../pages/dashboard/advertiseProperties/Advertis
 import PaymentHistory from "../pages/dashboard/pages/payment/PaymentHistory";
 import FeaturedSection from "../components/FeaturedSection";
 import OfferSection from "../components/OfferSection";
+import ContactUs from "../components/ContactUs";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path: 'offers',
                 element: <OfferSection></OfferSection>
+            },
+            {
+                path: 'contactUs',
+                element: <ContactUs></ContactUs>
             },
         ]
     },

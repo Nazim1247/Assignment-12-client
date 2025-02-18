@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 import { Slide, Zoom } from "react-awesome-reveal";
 import AboutUs from "../components/AboutUs";
 import Services from "../components/Services";
+import ContactUs from "../components/ContactUs";
 
 const Home = () => {
     const [reviews, setReviews] = useState([]);
@@ -60,12 +61,21 @@ const Home = () => {
             </div>
             </Slide>
 
+            <Slide duration={2000} delay={100} direction='right'>
             <div>
                 <Services></Services>
             </div>
+            </Slide>
+            <Slide duration={2000} delay={100}>
             <div>
                 <AboutUs></AboutUs>
             </div>
+            </Slide>
+            <Zoom>
+            <div>
+                <ContactUs></ContactUs>
+            </div>
+            </Zoom>
         </div>
     );
 };
