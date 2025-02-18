@@ -1,5 +1,5 @@
 
-import { FaHome, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdVerified } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -17,10 +17,10 @@ const PropertyCard = ({property}) => {
       className="rounded-xl w-full md:h-40" />
   </figure>
   <div className="p-4 space-y-2">
-    <h2 className="card-title text-green-600"><FaHome />{title}</h2>
+    <h2 className="card-title text-green-600">{title}</h2>
     <div className="flex items-center justify-between">
     <img className="w-12 h-12 rounded-full" src={agentImage} alt="" />
-    <h3 className="text-md font-semibold flex items-center gap-1"><FaUser />{agentName}</h3>
+    <h3 className="text-md font-semibold flex items-center gap-1"><FaUser className="text-green-600"/>{agentName}</h3>
     </div>
     <p className="flex items-center gap-2"><IoLocationSharp className="text-green-600"/>{location}</p>
     <div className="flex items-center justify-between">
