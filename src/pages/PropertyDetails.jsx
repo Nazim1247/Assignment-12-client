@@ -58,7 +58,14 @@ const PropertyDetails = () => {
                 }
             })
         }else{
-            alert('only user can add')
+            navigate('/login')
+            // Swal.fire({
+            //     position: "top-center",
+            //     icon: "error",
+            //     title: "Only User Can add to Wishlist",
+            //     showConfirmButton: false,
+            //     timer: 1500
+            //   });
         }
     }
 
