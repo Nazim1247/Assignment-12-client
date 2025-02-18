@@ -74,7 +74,7 @@ className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52
             </div>
 
             <div className="md:flex w-11/12 mx-auto my-6 gap-4">
-            <div className="w-64 min-h-screen rounded-lg hidden lg:flex bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
+            <div className="w-64 min-h-screen rounded-lg hidden lg:flex bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
                 <ul className="menu">
 
                 {
