@@ -15,7 +15,14 @@ const Navbar = () => {
     const links = <div className='flex lg:flex-row flex-col space-x-3'>
     <li><NavLink to='/' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Home</NavLink></li>
     <li><NavLink to='/allProperties' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>All Properties</NavLink></li>
-    <li><NavLink to='/dashboard' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Dashboard</NavLink></li>
+    
+    <li><NavLink to='/featured' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Featured</NavLink></li>
+    <li><NavLink to='/offers' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Offers</NavLink></li>
+    <li><NavLink to='/contactUs' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Contact Us</NavLink></li>
+
+    {
+      user && <li><NavLink to='/dashboard' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Dashboard</NavLink></li>
+    }
     </div>
 
     const handleLogout = ()=>{

@@ -36,7 +36,7 @@ const FeaturedSection = () => {
   ];
 
   return (
-    <section className="py-10">
+    <section className="py-10 w-11/12 mx-auto">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-6 text-green-600">Featured Properties</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

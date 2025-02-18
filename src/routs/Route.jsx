@@ -28,6 +28,8 @@ import AgentRoute from "./AgentRoute";
 import SoldProperties from "../pages/dashboard/pages/SoldProperties";
 import AdvertiseProperties from "../pages/dashboard/advertiseProperties/AdvertiseProperties";
 import PaymentHistory from "../pages/dashboard/pages/payment/PaymentHistory";
+import FeaturedSection from "../components/FeaturedSection";
+import OfferSection from "../components/OfferSection";
 
 const router = createBrowserRouter([
     {
@@ -54,6 +56,14 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'featured',
+                element: <FeaturedSection></FeaturedSection>
+            },
+            {
+                path: 'offers',
+                element: <OfferSection></OfferSection>
             },
         ]
     },

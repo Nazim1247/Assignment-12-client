@@ -22,23 +22,23 @@ const Home = () => {
     }, [])
 
     return (
-        <div className="w-11/12 mx-auto">
+        <div>
             <Helmet>
                 <title>Dream House | Home</title>
             </Helmet>
             <Zoom>
-            <div>
+            <div className="w-11/12 mx-auto">
                 <Banner></Banner>
             </div>
             </Zoom>
             <Slide duration={2000} delay={100} direction='right'>
-            <div>
+            <div className="w-11/12 mx-auto">
                 <AdvertisementSection></AdvertisementSection>
             </div>
             </Slide>
             
             <Slide duration={2000} delay={100}>
-            <div>
+            <div className="w-11/12 mx-auto">
                 <h2 className="text-2xl font-bold text-center my-8 text-green-600">Latest User's Reviews</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {
