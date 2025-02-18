@@ -1,10 +1,14 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.png';
-import { useContext } from 'react';
+import logo from '../assets/web-logo.png';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+// import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
+import { BsFillMoonStarsFill } from 'react-icons/bs';
+import { MdOutlineLightMode } from 'react-icons/md';
 
 const Navbar = () => {
+  const [isDark,setIsDark]=useState(false)
   const navigate = useNavigate();
   const {user, logoutUser} = useContext(AuthContext);
 
@@ -30,6 +34,12 @@ const Navbar = () => {
         console.log(error.message)
       })
     }
+
+    const handleTheme = ()=>{
+      setIsDark(!isDark)
+      document.body.classList.toggle('dark')
+    }
+
     return (
         <div className='w-11/12 mx-auto'>
             <div className="navbar">
@@ -55,8 +65,8 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <img className='w-12 h-12 rounded-full mr-2' src={logo} alt="" />
-    <a className="text-2xl font-bold text-white hidden md:flex">Dream House</a>
+    <img className='w-10 h-10' src={logo} alt="" />
+    <a className="text-2xl font-bold text-white hidden md:flex ml-2">Dream House</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -68,12 +78,13 @@ const Navbar = () => {
       user && user.email ? 
       <>
       <button className='btn btn-ghost text-white' onClick={handleLogout}>Logout</button>
-      <img title={user?.displayName} className='w-12 h-12 rounded-full ml-2' src={user?.photoURL} alt="" />
+      <img title={user?.displayName} className='w-10 h-10 rounded-full' src={user?.photoURL} alt="" />
       </> 
       : 
       <Link className='btn btn-ghost text-white' to='/login'>Login</Link>
     }
     
+    <button onClick={handleTheme} className='btn btn-ghost text-4xl'>{isDark?<BsFillMoonStarsFill className='text-gray-500' title='Click for Light Mode' />:<MdOutlineLightMode className='text-white' title='Click for Dark Mode'/>}</button>
   </div>
 </div>
         </div>
