@@ -73,8 +73,8 @@ className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52
 <h2 className="text-center text-3xl font-bold mt-6 text-green-600">Dashboard</h2>
             </div>
 
-            <div className="md:flex w-11/12 mx-auto my-6 gap-4">
-            <div className="w-64 min-h-screen rounded-lg hidden lg:flex bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
+            <div className="md:flex w-11/12 mx-auto gap-4 py-6">
+            <div className="w-64 rounded-lg hidden lg:flex bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
                 <ul className="menu">
 
                 {

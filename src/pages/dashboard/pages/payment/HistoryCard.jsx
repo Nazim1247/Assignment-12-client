@@ -38,7 +38,7 @@ const HistoryCard = ({payment,refetch}) => {
     return (
         
 <div>
-<div className="card shadow h-full flex flex-col justify-between">
+<div className="card shadow h-full flex flex-col justify-between border">
               <figure className="p-4">
                 <img
                   src={image}

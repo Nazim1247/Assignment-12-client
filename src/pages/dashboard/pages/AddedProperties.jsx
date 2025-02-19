@@ -82,7 +82,7 @@ const AddedProperties = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
                 properties.map(property => 
-                    <div key={property._id} className="card shadow h-full flex flex-col justify-between">
+                    <div key={property._id} className="card shadow h-full flex flex-col justify-between border">
                     <figure className="p-4">
                       <img
                         src={property.image}

@@ -49,7 +49,7 @@ const OfferSection = () => {
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold ">{offer.title}</h3>
-                <p className="text-gray-600 flex items-center gap-2"><FaLocationDot />{offer.location}</p>
+                <p className="flex items-center gap-2"><FaLocationDot />{offer.location}</p>
                 <p className="text-lg font-bold text-green-600">{offer.price}</p>
                 <Link to='/allProperties'><button className="mt-4 btn btn-sm btn-primary w-full">
                   View All Properties
