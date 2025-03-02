@@ -31,7 +31,7 @@ const AdvertisementSection = () => {
                         <p className="flex items-center gap-2 font-semibold"><FaLocationDot className="text-green-600"/>{property.location}</p>
                         <div className="flex items-center justify-between">
                             <p className="flex items-center font-semibold gap-1">{property.status}<MdVerified className="text-blue-600"/></p>
-                            <p className="text-green-600 border rounded-3xl px-3">${property.price}</p>
+                            <p className="text-green-600 dark:bg-gray-700 shadow rounded-3xl px-3">${property.price}</p>
                         </div>
                         <Link to={`/propertyDetails/${property._id}`}><button className="btn btn-sm btn-primary w-full mt-2">Details</button></Link>
                     </div>

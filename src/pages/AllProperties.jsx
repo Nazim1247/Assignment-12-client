@@ -35,8 +35,8 @@ const AllProperties = () => {
             </Helmet>
             <div className="md:flex items-center justify-between bg-primary mb-4 p-2 rounded-t-lg text-center space-y-2">
                 <h2 className="text-2xl font-bold text-white">All Properties: {properties.length}</h2>
-                <button onClick={handleSort} className="btn">Sort By Price</button>
-                <label className="input input-bordered flex items-center gap-2">
+                <button onClick={handleSort} className="btn dark:bg-gray-800 dark:text-gray-100 border-none">Sort By Price</button>
+                <label className="input input-bordered flex items-center gap-2 dark:bg-gray-800">
               <input onChange={handleSearch} value={search} name="search" type="text" className="grow" placeholder="Search By Location" />
               <svg
               xmlns="http://www.w3.org/2000/svg"
