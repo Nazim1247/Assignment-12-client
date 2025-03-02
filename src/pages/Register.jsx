@@ -90,36 +90,36 @@ const Register = () => {
       <h1 className="text-2xl font-bold">Register now!</h1>
       <Lottie animationData={lottie}></Lottie>
     </div>
-    <div className="card w-full shadow">
+    <div className="card w-full shadow dark:bg-gray-800">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <p className='text-center mb-2'>Already Have an Account? <Link className='text-red-600' to={'/login'}>Login</Link></p>
-        <button type='button' className='btn text-center bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100 border-none'>
+        <button type='button' className='btn text-center bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100 border-none'>
             <SocialLogin></SocialLogin>
         </button>
-        <div className="divider">OR</div>
+        <div className="divider dark:bg-gray-700">OR</div>
         <div className="form-control">
           <label className="label">
             <span>Name</span>
           </label>
-          <input type="text" {...register("name")} name='name' placeholder="name" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="text" {...register("name")} name='name' placeholder="name" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Photo url</span>
           </label>
-          <input type="text" {...register("photo")} name='photo' placeholder="photo url" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="text" {...register("photo")} name='photo' placeholder="photo url" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Email</span>
           </label>
-          <input type="email" {...register("email")} name='email' placeholder="email" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="email" {...register("email")} name='email' placeholder="email" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Password</span>
           </label>
-          <input type="password" {...register("password",{ required: true, minLength: 6, maxLength: 20, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/ })} name='password' placeholder="password" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="password" {...register("password",{ required: true, minLength: 6, maxLength: 20, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/ })} name='password' placeholder="password" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
           {errors.password && <span className='text-red-600'>Password must be 6 characters long</span>}
           {errors.password && <span className='text-red-600'>Password must have one uppercase, one lowercase, and one special character required</span>}
         </div>

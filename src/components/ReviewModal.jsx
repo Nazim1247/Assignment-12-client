@@ -43,26 +43,26 @@ const ReviewModal = ({ isOpen, closeModal, property }) => {
 
         <Dialog open={isOpen} onClose={closeModal} className="relative z-50">
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-        <DialogPanel className=" lg:w-1/2 mx-auto space-y-4 border bg-white p-12">
-        <DialogTitle className="font-bold">Add a Review</DialogTitle>
-        <Description>Review Form</Description>
+        <DialogPanel className=" lg:w-1/2 mx-auto space-y-4 bg-white p-6 rounded-xl shadow dark:bg-gray-800 dark:text-gray-100">
+        {/* <DialogTitle className="font-bold">Add a Review</DialogTitle> */}
+        {/* <Description>Review Form</Description> */}
         <form onSubmit={handleSubmit} className='w-full space-y-1'>
         <div className="form-control">
-          <input type="text" name='name' defaultValue={user?.displayName} placeholder="Name" className="input input-bordered" required />
+          <input type="text" name='name' defaultValue={user?.displayName} placeholder="Name" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control">
-          <input type="text" name='photo' defaultValue={user?.photoURL} placeholder="photo url" className="input input-bordered" required />
+          <input type="text" name='photo' defaultValue={user?.photoURL} placeholder="photo url" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control">
-          <input type="email" defaultValue={user?.email} name='email' placeholder="email" className="input input-bordered" required />
+          <input type="email" defaultValue={user?.email} name='email' placeholder="email" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control">
-          <input name='review' type="text" placeholder="Type here Review" className="input input-bordered w-full" required />
+          <input name='review' type="text" placeholder="Type here Review" className="input input-bordered w-full dark:bg-gray-700" required />
         </div>
         <div className="form-control">
-          <input name='date' type="date" placeholder="Review Date" className="input input-bordered w-full" required />
+          <input name='date' type="date" placeholder="Review Date" className="input input-bordered w-full dark:bg-gray-700" required />
         </div>
-        <button className='btn btn-sm btn-primary mt-2'>Submit</button>
+        <button className='btn btn-sm btn-primary mt-2 w-full'>Submit</button>
         </form>
         </DialogPanel>
         </div>

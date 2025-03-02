@@ -67,7 +67,7 @@ const AddProperty = () => {
       <div className="bg-primary p-2 rounded-t-lg w-full">
       <h1 className="text-2xl font-bold text-white text-center">Add a Property</h1>
       </div>
-    <div className="card w-full shadow border">
+    <div className="card w-full shadow dark:bg-gray-800">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
           <label className="label">
@@ -75,7 +75,7 @@ const AddProperty = () => {
           </label>
           <input type="text" {...register("name")}
           defaultValue={user.displayName}
-          placeholder="name" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100" readOnly />
+          placeholder="name" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
@@ -83,31 +83,31 @@ const AddProperty = () => {
           </label>
           <input type="email" {...register("email")}
           defaultValue={user.email}
-          placeholder="email" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100" readOnly />
+          placeholder="email" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Property Title</span>
           </label>
-          <input type="text" {...register("title")} placeholder="title" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="text" {...register("title")} placeholder="title" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Property Location</span>
           </label>
-          <input type="text" {...register("location")} placeholder="Location" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="text" {...register("location")} placeholder="Location" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Price Range</span>
           </label>
-          <input type="number" {...register("price")} placeholder="price" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="number" {...register("price")} placeholder="price" className="input input-bordered bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Description</span>
           </label>
-          <textarea {...register("description")} className="textarea textarea-bordered bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100" placeholder="Description" required></textarea>
+          <textarea {...register("description")} className="textarea textarea-bordered bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100" placeholder="Description" required></textarea>
           
         </div>
         <div className="form-control">
@@ -117,7 +117,7 @@ const AddProperty = () => {
           <input
            type="file"
            {...register("image")}
-           className="file-input file-input-bordered file-input-primary w-full bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+           className="file-input file-input-bordered file-input-primary w-full bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Add Property</button>

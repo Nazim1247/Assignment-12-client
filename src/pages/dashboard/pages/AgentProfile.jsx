@@ -9,7 +9,7 @@ const AgentProfile = () => {
     // console.log(isAgent)
     return (
         <Zoom>
-            <div className="text-center py-6 space-y-2 border rounded-lg">
+            <div className="text-center py-6 space-y-2 rounded-lg dark:bg-gray-800">
             <Helmet>
                 <title>Dream House | Dashboard | Agent Profile</title>
             </Helmet>

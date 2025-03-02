@@ -51,24 +51,24 @@ const Login = () => {
       <h1 className="text-2xl font-bold">Login now!</h1>
       <Lottie className='lg:w-96' animationData={lottie}></Lottie>
     </div>
-    <div className="card w-full shadow border">
+    <div className="card w-full shadow dark:bg-gray-800">
       <form onSubmit={handleSubmit} className="card-body">
         <p className='text-center mb-2'>New to This Page? <Link className='text-red-600' to={'/register'}>Register</Link></p>
-        <button type='button' className='btn text-center bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100 border-none'>
+        <button type='button' className='btn text-center bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100 border-none'>
             <SocialLogin></SocialLogin>
         </button>
-        <div className="divider">OR</div>
+        <div className="divider dark:bg-gray-700">OR</div>
         <div className="form-control">
           <label className="label">
             <span>Email</span>
           </label>
-          <input type="email" name='email' placeholder="email" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="email" name='email' placeholder="email" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Password</span>
           </label>
-          <input type="password" name='password' placeholder="password" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100" required />
+          <input type="password" name='password' placeholder="password" className="input input-bordered bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100" required />
           
         </div>
         <div className="form-control mt-6">

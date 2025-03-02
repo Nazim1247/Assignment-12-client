@@ -82,7 +82,7 @@ const AddedProperties = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
                 properties.map(property => 
-                    <div key={property._id} className="card shadow h-full flex flex-col justify-between border">
+                    <div key={property._id} className="card shadow h-full flex flex-col justify-between dark:bg-gray-800">
                     <figure className="p-4">
                       <img
                         src={property.image}
@@ -97,8 +97,8 @@ const AddedProperties = () => {
                       </div>
                       <p className="flex items-center"><IoLocationSharp className="text-green-600"/>{property.location}</p>
                       <div className="flex items-center justify-between">
-                        <p className="font-semibold">status: {property.status==='pending'?<span className="text-pink-600 border rounded-3xl px-3">{property.status}</span>:<span className="text-green-600 border rounded-3xl px-3">{property.status}</span>}</p>
-                      <p className="text-green-600 border rounded-3xl px-3">${property.price}</p>
+                        <p className="font-semibold">status: {property.status==='pending'?<span className="text-pink-600 shadow dark:bg-gray-700 rounded-3xl px-3">{property.status}</span>:<span className="text-green-600 shadow dark:bg-gray-700 rounded-3xl px-3">{property.status}</span>}</p>
+                      <p className="text-green-600 shadow dark:bg-gray-700 rounded-3xl px-3">${property.price}</p>
                       </div>
                       <div className="flex gap-2 items-center justify-between">
                         <Link to={`/dashboard/updateProperty/${property._id}`}><button className="btn btn-sm btn-primary">Update</button></Link>

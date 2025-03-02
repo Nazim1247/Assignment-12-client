@@ -58,7 +58,7 @@ const PropertyDetails = () => {
                 }
             })
         }else{
-            navigate('/login')
+            navigate('/')
             // Swal.fire({
             //     position: "top-center",
             //     icon: "error",
@@ -90,7 +90,7 @@ const PropertyDetails = () => {
       <p className="flex items-center gap-1"><IoLocationSharp className="text-green-600"/>{location}</p>
       <div className="flex items-center justify-between">
         <p className="flex items-center gap-1 font-semibold">Status: <span className="text-green-600">{status}</span><MdVerified className="text-blue-600"/></p>
-      <p className="text-green-600 border rounded-3xl px-3">${price}</p>
+      <p className="text-green-600 shadow dark:bg-gray-700 rounded-3xl px-3">${price}</p>
       </div>
       <p className=""><span className="font-semibold">Description:</span> {description}</p>
        <div className="flex items-center justify-between">
