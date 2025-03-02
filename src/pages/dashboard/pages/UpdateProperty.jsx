@@ -49,57 +49,57 @@ const UpdateProperty = () => {
       <h1 className="text-2xl font-bold text-white text-center">Update Your Property</h1>
       
     </div>
-    <div className="card w-full shadow">
+    <div className="card w-full shadow dark:bg-gray-800">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Agent Name</span>
+            <span>Agent Name</span>
           </label>
           <input type="text" {...register("name")}
           defaultValue={agentName}
-          placeholder="name" className="input input-bordered" readOnly />
+          placeholder="name" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Agent Email</span>
+            <span>Agent Email</span>
           </label>
           <input type="email" {...register("email")}
           defaultValue={agentEmail}
-          placeholder="email" className="input input-bordered" readOnly />
+          placeholder="email" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Property Title</span>
+            <span>Property Title</span>
           </label>
           <input type="text" {...register("title")}
           defaultValue={title}
-          placeholder="title" className="input input-bordered" required />
+          placeholder="title" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Property Location</span>
+            <span>Property Location</span>
           </label>
           <input type="text" {...register("location")}
           defaultValue={location}
-          placeholder="Location" className="input input-bordered" required />
+          placeholder="Location" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Price Range</span>
+            <span>Price Range</span>
           </label>
           <input type="number" {...register("price")} 
           defaultValue={price}
-          placeholder="price" className="input input-bordered" required />
+          placeholder="price" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Property Image</span>
+            <span>Property Image</span>
           </label>
           <input
            type="text"
            {...register("image")}
            defaultValue={image}
-           className="input input-bordered" required />
+           className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Update Property</button>

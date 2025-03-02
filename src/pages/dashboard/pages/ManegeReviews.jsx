@@ -54,7 +54,7 @@ const ManegeReviews = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                 reviews.map(review => 
-            <div key={review._id} className="text-center space-y-2 border rounded-md p-4">
+            <div key={review._id} className="text-center space-y-2 dark:bg-gray-800 rounded-md p-4">
             <img className="w-32 h-32 rounded-full mx-auto" src={review.photo} alt="" />
             <h2 className="font-semibold text-2xl flex items-center justify-center gap-1"><FaUserAlt />{review.name}</h2>
             <p className="font-semibold text-lg text-green-600">{review.email}</p>
