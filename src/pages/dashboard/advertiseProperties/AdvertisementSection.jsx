@@ -21,7 +21,7 @@ const AdvertisementSection = () => {
             <h1 className="text-2xl font-bold text-center text-green-600 my-6">The Top Advertisements</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {advertisedProperties.map(property => (
-                    <div key={property._id} className="border p-4 space-y-2 rounded-lg shadow">
+                    <div key={property._id} className="p-4 space-y-2 rounded-lg shadow dark:bg-gray-800">
                         <img
                             src={property.image}
                             alt="Property"

@@ -41,7 +41,7 @@ const FeaturedSection = () => {
         <h2 className="text-2xl font-bold text-center mb-6 text-green-600">Featured Properties</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {featuredProperties.map((property) => (
-            <div key={property.id} className="shadow rounded-lg overflow-hidden">
+            <div key={property.id} className="shadow rounded-lg overflow-hidden dark:bg-gray-800">
               <img
                 src={property.image}
                 alt={property.name}

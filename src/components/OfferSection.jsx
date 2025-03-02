@@ -41,7 +41,7 @@ const OfferSection = () => {
         <h2 className="text-2xl font-bold text-center mb-6 text-green-600">Special Offers</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {offers.map((offer) => (
-            <div key={offer.id} className="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+            <div key={offer.id} className="shadow rounded-lg overflow-hidden flex flex-col justify-between dark:bg-gray-800">
               <img
                 src={offer.image}
                 alt={offer.title}
