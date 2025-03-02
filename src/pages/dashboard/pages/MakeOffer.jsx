@@ -24,7 +24,7 @@ const MakeOffer = () => {
             return data;
         }
     })
-
+// console.log(wishlists)
     const {title, image, location, agentName, agentEmail, _id, price}= wishlists || {};
 
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
@@ -77,68 +77,68 @@ const MakeOffer = () => {
           <Helmet>
             <title>Dream House | Make an offer</title>
           </Helmet>
-    <div className="w-full">
+    <div className="w-full dark:bg-gray-800 rounded-lg">
       <h1 className="text-2xl font-bold text-center">Make an offer</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Property Title </span>
+            <span>Property Title </span>
           </label>
-          <input type="text" {...register("title")} defaultValue={title} placeholder="Property Title" className="input input-bordered" readOnly />
+          <input type="text" {...register("title")} defaultValue={title} placeholder="Property Title" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Property Image </span>
+            <span>Property Image </span>
           </label>
-          <input type="text" {...register("image")} defaultValue={image} placeholder="Property image" className="input input-bordered" readOnly />
+          <input type="text" {...register("image")} defaultValue={image} placeholder="Property image" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Property Location</span>
+            <span>Property Location</span>
           </label>
-          <input type="text" {...register("location")} defaultValue={location} placeholder="location" className="input input-bordered" readOnly />
+          <input type="text" {...register("location")} defaultValue={location} placeholder="location" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Agent Name</span>
+            <span>Agent Name</span>
           </label>
-          <input type="text" {...register("name")} defaultValue={agentName} placeholder="agent name" className="input input-bordered" readOnly />
+          <input type="text" {...register("name")} defaultValue={agentName} placeholder="agent name" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Agent Email</span>
+            <span>Agent Email</span>
           </label>
-          <input type="email" {...register("email")} defaultValue={agentEmail} placeholder="agent email" className="input input-bordered" readOnly />
+          <input type="email" {...register("email")} defaultValue={agentEmail} placeholder="agent email" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Bayer Name</span>
+            <span>Bayer Name</span>
           </label>
-          <input type="text" defaultValue={user?.displayName} placeholder="bayer name" className="input input-bordered" readOnly />
+          <input type="text" defaultValue={user?.displayName} placeholder="bayer name" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Bayer email</span>
+            <span>Bayer email</span>
           </label>
-          <input type="email" defaultValue={user?.email} placeholder="bayer email" className="input input-bordered" readOnly />
+          <input type="email" defaultValue={user?.email} placeholder="bayer email" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Price</span>
+            <span>Price</span>
           </label>
-          <input type="text" defaultValue={price} placeholder="price" className="input input-bordered" readOnly />
+          <input type="text" defaultValue={price} placeholder="price" className="input input-bordered dark:bg-gray-700" readOnly />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Offer Amount</span>
+            <span>Offer Amount</span>
           </label>
-          <input value={amount}  type="number" {...register("amount",{onChange:(e)=> handleAmount(e.target.value)})} id="amount" name="amount" placeholder="Offer Amount" className="input input-bordered" required />
+          <input value={amount}  type="number" {...register("amount",{onChange:(e)=> handleAmount(e.target.value)})} id="amount" name="amount" placeholder="Offer Amount" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Baying Date</span>
+            <span>Baying Date</span>
           </label>
-          <input type="date" {...register("date")} placeholder="Baying Date" className="input input-bordered" required />
+          <input type="date" {...register("date")} placeholder="Baying Date" className="input input-bordered dark:bg-gray-700" required />
         </div>
         <div className="form-control mt-6">
           {user && <button className="btn btn-primary">Offer</button>}

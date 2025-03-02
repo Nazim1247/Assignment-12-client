@@ -32,7 +32,7 @@ const BoughtProperties = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     offers.map(offer => 
-             <div key={offer._id} className="card shadow h-full flex flex-col justify-between border">
+             <div key={offer._id} className="card shadow h-full flex flex-col justify-between dark:bg-gray-800">
               <figure className="p-4">
                 <img
                   src={offer.image}
@@ -44,13 +44,13 @@ const BoughtProperties = () => {
                 <h3 className="flex items-center gap-1 text-md font-semibold"><FaUser />Agent:  {offer.agentName}</h3>
                 <p className="flex items-center gap-1"><IoLocationSharp className="text-green-600"/>{offer.location}</p>
                 <div className="flex items-center justify-between">
-                <p className="font-semibold">Status:{offer.status!=='accepted'?<span className="text-pink-600 border rounded-3xl px-2 ml-1">{offer.status}</span>:<span className="text-green-600 border rounded-3xl px-2 ml-1">{offer.status}</span>}</p>
-                <p className="text-green-600 border rounded-3xl px-3">${offer.amount}</p>
+                <p className="font-semibold">Status:{offer.status!=='accepted'?<span className="text-pink-600 shadow dark:bg-gray-700 rounded-3xl px-2 ml-1">{offer.status}</span>:<span className="text-green-600 border rounded-3xl px-2 ml-1">{offer.status}</span>}</p>
+                <p className="text-green-600 rounded-3xl px-3 shadow dark:bg-gray-700">${offer.amount}</p>
                 </div>
                 {offer.status==='accepted'?
                 <Link to={`/dashboard/payment/${offer._id}`}><button className="btn btn-sm btn-primary mt-2 w-full">Pay</button></Link>
                 :
-                <button disabled className="btn btn-sm btn-primary w-full mt-2">Pay</button>}
+                <button disabled className="btn btn-sm btn-primary w-full mt-2 dark:bg-gray-700 dark:text-gray-400">Pay</button>}
               </div>
             </div>
                 )

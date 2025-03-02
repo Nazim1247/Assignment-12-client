@@ -37,7 +37,7 @@ const WishlistCart = ({wishlist,refetch}) => {
     
     return (
         <div>
-            <div className="card shadow h-full flex flex-col justify-between border">
+            <div className="card shadow h-full flex flex-col justify-between dark:bg-gray-800">
               <figure className="p-4">
                 <img
                   src={image}
@@ -46,13 +46,11 @@ const WishlistCart = ({wishlist,refetch}) => {
               </figure>
               <div className="p-4 space-y-2">
                 <h2 className="card-title text-green-600 text-2xl">{title}</h2>
+                <h3 className="flex items-center text-xl"><IoLocationSharp className="text-green-600"/>{location}</h3>
+                <h3 className="text-md font-semibold flex items-center gap-1 text-lg"><FaUser /><span className="font-semibold">Agent:</span> {agentName}</h3>
                 <div className="flex items-center justify-between">
-                <img className="w-12 h-12 rounded-full" src={agentImage} alt="" />
-                <h3 className="text-md font-semibold flex items-center gap-1"><FaUser /><span>Agent:</span> {agentName}</h3>
-                </div>
-                <div className="flex items-center justify-between">
-                <p className="flex items-center gap-2"><IoLocationSharp className="text-green-600"/>{location}</p>
-                <p className="text-green-600 border rounded-3xl px-3">${price}</p>
+                <img className="w-12 h-12 rounded-full" src={agentImage} alt="Agent Image" title="Agent"/>
+                <p className="text-green-600 dark:bg-gray-700 shadow rounded-3xl px-3">${price}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <Link to={`/dashboard/makeOffer/${_id}`}><button className="btn btn-sm btn-primary w-full">Make an offer</button></Link>

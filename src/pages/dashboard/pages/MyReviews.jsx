@@ -56,7 +56,7 @@ const MyReviews = () => {
             </div>
             <div className="space-y-4">
                 {reviews.map(review => 
-                    <div key={review._id} className=" space-y-2 border rounded-md p-6">
+                    <div key={review._id} className=" space-y-2 rounded-md p-6 shadow dark:bg-gray-800">
                         <h2 className="text-2xl font-bold text-green-600"><span className="font-semibold">Property:</span> {review.property.title}</h2>
                         <h2 className="text-xl font-semibold"><span className="font-semibold">Agent:</span> {review.property.agentName}</h2>
                         <p><span className="font-semibold">Date:</span> {review.date}</p>

@@ -16,6 +16,7 @@ const Wishlist = () => {
             return data;
         }
     })
+    // console.log(wishlists)
     if(isLoading) return <p className="text-center"><span className="loading loading-spinner loading-lg"></span></p>
 
     return (

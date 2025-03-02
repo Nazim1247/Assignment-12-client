@@ -9,7 +9,7 @@ const UserProfile = () => {
     
     return (
         <Zoom>
-            <div className="text-center py-6 space-y-2 border rounded-lg">
+            <div className="text-center py-6 space-y-2 dark:bg-gray-800 rounded-lg">
             <Helmet>
                 <title>Dream House | Dashboard | User Profile</title>
             </Helmet>
