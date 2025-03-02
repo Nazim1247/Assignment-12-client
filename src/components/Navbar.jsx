@@ -1,16 +1,14 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/web-logo.png';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
-// import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
 import { BsFillMoonStarsFill } from 'react-icons/bs';
 import { MdOutlineLightMode } from 'react-icons/md';
 
-const Navbar = () => {
-  const [isDark,setIsDark]=useState(false)
+const Navbar = () => { 
   const navigate = useNavigate();
-  const {user, logoutUser} = useContext(AuthContext);
+  const {user, logoutUser, theme, toggleTheme} = useContext(AuthContext);
 
     const links = <div className='flex lg:flex-row flex-col space-x-3'>
     <li><NavLink to='/' className={({ isActive }) => isActive ? 'btn btn-ghost text-black' : 'btn btn-ghost text-white'}>Home</NavLink></li>
@@ -40,11 +38,6 @@ const Navbar = () => {
       .catch(error =>{
         console.log(error.message)
       })
-    }
-
-    const handleTheme = ()=>{
-      setIsDark(!isDark)
-      document.body.classList.toggle('dark')
     }
 
     return (
@@ -91,7 +84,12 @@ const Navbar = () => {
       <Link className='btn btn-ghost text-white' to='/login'>Login</Link>
     }
     
-    <button onClick={handleTheme} className='btn btn-ghost text-4xl'>{isDark?<BsFillMoonStarsFill className='text-gray-500' title='Click for Light Mode' />:<MdOutlineLightMode className='text-white' title='Click for Dark Mode'/>}</button>
+    <button onClick={toggleTheme} className='btn btn-ghost text-4xl'>
+      {theme === 'light'?
+      <MdOutlineLightMode className='text-white' title='Click for Dark Mode'/>: 
+      <BsFillMoonStarsFill className='text-gray-500' title='Click for Light Mode' />}
+      </button>
+
   </div>
 </div>
         </div>
